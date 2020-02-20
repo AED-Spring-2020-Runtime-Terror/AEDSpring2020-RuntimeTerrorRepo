@@ -7,8 +7,6 @@ package UserInterface;
 
 import Business.ConfigureBusiness;
 import Business.TravelAgency;
-import UserInterface.ManageAirliners.ManageAirlinersJPanel;
-import java.awt.CardLayout;
 
 /**
  *
@@ -36,15 +34,15 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jSplitPane2 = new javax.swing.JSplitPane();
-        rightPanel = new javax.swing.JPanel();
+        CardSequenceJPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         manageAirlinesBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        rightPanel.setLayout(new java.awt.CardLayout());
-        jSplitPane2.setRightComponent(rightPanel);
+        CardSequenceJPanel.setLayout(new java.awt.CardLayout());
+        jSplitPane2.setRightComponent(CardSequenceJPanel);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -118,10 +116,10 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CardSequenceJPanel;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JButton manageAirlinesBtn;
-    private javax.swing.JPanel rightPanel;
     // End of variables declaration//GEN-END:variables
 }

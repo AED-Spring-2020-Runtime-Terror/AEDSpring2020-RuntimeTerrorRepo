@@ -5,9 +5,9 @@
  */
 package UserInterface.ManageAirliners;
 
+import Business.Airliner;
 import Business.TravelAgency;
 import java.awt.CardLayout;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +22,7 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
      */
     private TravelAgency travelAgency;
     private JPanel rightPanel;
+
     public ManageAirlinersJPanel(JPanel rightPanel, TravelAgency travelAgency) {
         initComponents();
         this.travelAgency = travelAgency;
@@ -134,17 +135,28 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void vieAirlinerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vieAirlinerBtnActionPerformed
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_vieAirlinerBtnActionPerformed
 
     private void InsertnewAirlinebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertnewAirlinebtnActionPerformed
         //have to insert new airline
-        
-    }//GEN-LAST:event_InsertnewAirlinebtnActionPerformed
 
+    }//GEN-LAST:event_InsertnewAirlinebtnActionPerformed
+    public void populateMainTable(TravelAgency travelAgency) {
+
+        DefaultTableModel defaultTableModel = (DefaultTableModel) airlinertable.getModel();
+        defaultTableModel.setRowCount(0);
+
+        for (Airliner a : travelAgency.getAirlinerDirectory().getAirlines()) {
+            Object[] row = new Object[defaultTableModel.getColumnCount()];
+            row[0] = a;
+            row[1] = a.getFleet().getLocation();
+            row[2] = (a.getFlightSchedule() != null && a.getFlightSchedule().getFlights() != null) ? a.getFlightSchedule().getFlights().size() : 0;
+
+            defaultTableModel.addRow(row);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton InsertnewAirlinebtn;
@@ -154,5 +166,5 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton vieAirlinerBtn;
     // End of variables declaration//GEN-END:variables
-   
+
 }

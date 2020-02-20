@@ -5,9 +5,8 @@
  */
 package UserInterface.ManageAirliners;
 
-
+import Business.Airliner;
 import Business.ConfigureBusiness;
-import Business.Fleet;
 import Business.TravelAgency;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -19,16 +18,15 @@ import javax.swing.JPanel;
  * @author nived
  */
 public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
-
     /**
      * Creates new form CreateNewAirlinerJPanel
      */
     private TravelAgency travelAgency;
-    private JPanel rightPanel;
-    
-    public CreateNewAirlinerJPanel( TravelAgency travelAgency, JPanel rightPanel) {
+    private JPanel cardSequenceJPanel;
+
+    public CreateNewAirlinerJPanel(TravelAgency travelAgency, JPanel cardSequenceJPanel) {
         initComponents();
-        this.rightPanel = rightPanel;
+        this.cardSequenceJPanel = cardSequenceJPanel;
         this.travelAgency = travelAgency;
     }
 
@@ -152,13 +150,63 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createFlightBtnActionPerformed
+        if (fleetIdTxt.getText().equals("") || fleetLocTxt.getText().equals("") || planesCountTxt.getText().equals("") || planeNametxt.getText().equals("")) //Search fir cusrtomer and we can do even login in this
+        {
+            JOptionPane.showMessageDialog(null, "Enter all the fields");
+        }
 
+        if (ConfigureBusiness.isNullOrEmpty(fleetIdTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Fleet Id can't ne null or empty");
+            return;
+        }
+        if (ConfigureBusiness.isNullOrEmpty(fleetLocTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Fleet Location can't ne null or empty");
+            return;
+        }
+        if (ConfigureBusiness.isNullOrEmpty(planesCountTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Planes count can't ne null or empty");
+            return;
+        }
+        try {
+            Integer.parseInt(planesCountTxt.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "PLanes count has to be a number!!");
+            return;
+        }
+        if (ConfigureBusiness.isNullOrEmpty(planeNametxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Airline Name can't ne null or empty");
+        }
+        Airliner airline = travelAgency.addAirline();
+        airline.getFleet().setId(fleetIdTxt.getText());
+        airline.getFleet().setLocation(fleetLocTxt.getText());
+        airline.getFleet().setPlanesOnFleet(Integer.valueOf(planesCountTxt.getText()));
+        airline.setAirlineName(planeNametxt.getText());
+
+        JOptionPane.showMessageDialog(this, "Airline added succesfully!!!!");
+        clearFields();
     }//GEN-LAST:event_createFlightBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        cardSequenceJPanel.remove(this);
 
+        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+        cardLayout.previous(cardSequenceJPanel);
+        Component[] comp = cardSequenceJPanel.getComponents();
+
+        for (Component c : comp) {
+            if (c instanceof ManageAirlinersJPanel) {
+                ManageAirlinersJPanel manageAirlinersJPanel = (ManageAirlinersJPanel) c;
+                manageAirlinersJPanel.populateMainTable(travelAgency);
+            }
+        }
     }//GEN-LAST:event_backBtnActionPerformed
+    private void clearFields() {
+        planeNametxt.setText("");
+        planesCountTxt.setText("");
+        fleetIdTxt.setText("");
+        fleetLocTxt.setText("");
 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
@@ -175,6 +223,4 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField planesCountTxt;
     // End of variables declaration//GEN-END:variables
 
-
-    
 }

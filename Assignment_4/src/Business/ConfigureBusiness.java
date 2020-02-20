@@ -5,7 +5,6 @@
  */
 package Business;
 
-
 /**
  *
  * @author srush
@@ -15,6 +14,14 @@ public class ConfigureBusiness {
     public static TravelAgency configure() {
         return null;
 
+    }
+
+    public static boolean isNullOrEmpty(String s) {
+
+        if (s.length() == 0 || s == null) {
+            return true;
+        }
+        return false;
     }
 
 }

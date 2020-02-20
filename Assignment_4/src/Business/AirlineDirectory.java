@@ -13,7 +13,15 @@ import java.util.List;
  * @author srush
  */
 public class AirlineDirectory {
-    
-     
-    
+
+    private List<Airliner> airlines;
+
+    public List<Airliner> getAirlines() {
+        return airlines;
+    }
+
+    public void setAirlines(List<Airliner> airlines) {
+        this.airlines = airlines;
+    }
+
 }
