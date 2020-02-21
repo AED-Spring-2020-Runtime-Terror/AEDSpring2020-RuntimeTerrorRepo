@@ -18,6 +18,7 @@ import javax.swing.JPanel;
  * @author nived
  */
 public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
+
     /**
      * Creates new form CreateNewAirlinerJPanel
      */
@@ -196,7 +197,7 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
         for (Component c : comp) {
             if (c instanceof ManageAirlinersJPanel) {
                 ManageAirlinersJPanel manageAirlinersJPanel = (ManageAirlinersJPanel) c;
-                manageAirlinersJPanel.populateMainTable(travelAgency);
+                manageAirlinersJPanel.populate(travelAgency);
             }
         }
     }//GEN-LAST:event_backBtnActionPerformed

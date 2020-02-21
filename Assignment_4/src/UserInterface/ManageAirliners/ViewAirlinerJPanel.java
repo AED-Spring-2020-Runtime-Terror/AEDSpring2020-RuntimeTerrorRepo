@@ -6,6 +6,7 @@
 package UserInterface.ManageAirliners;
 
 
+import Business.Airliner;
 import Business.TravelAgency;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -22,12 +23,12 @@ public class ViewAirlinerJPanel extends javax.swing.JPanel {
      */
   
     private TravelAgency travelAgency;
-    private JPanel rightPanel;
+    private JPanel cardSequenceJPanel;
     
-    ViewAirlinerJPanel(JPanel rightPanel, TravelAgency travelAgency) {
+    ViewAirlinerJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency,Airliner airline) {
         initComponents();
         this.travelAgency = travelAgency;
-        this.rightPanel = rightPanel;
+        this.cardSequenceJPanel = cardSequenceJPanel;
     }
 
     /**
@@ -159,9 +160,9 @@ public class ViewAirlinerJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        rightPanel.remove(this);
-        CardLayout cardLayout = (CardLayout) rightPanel.getLayout();
-        cardLayout.previous(rightPanel);
+        cardSequenceJPanel.remove(this);
+        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+        cardLayout.previous(cardSequenceJPanel);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void airPlanesCounttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_airPlanesCounttxtActionPerformed
