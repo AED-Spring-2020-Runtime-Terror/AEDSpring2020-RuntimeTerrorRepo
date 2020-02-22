@@ -91,7 +91,8 @@ public class AnalysisHelper {
                 + posts.get(maxId));
     }
      
-      public void inactiveUsers_based_on_comments() {
+
+ public void inactiveUsers_based_on_comments() {
 
         Map<Integer, User> users = DataStore.getInstance().getUsers();
 
@@ -109,4 +110,13 @@ public class AnalysisHelper {
         }
 
     }
+
+
+
+     
+
+
+
+
+
 }

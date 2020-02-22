@@ -96,7 +96,8 @@ public class Lab7 {
         helper.userWithMostLikes();
         helper.getPostWithMostComments();
         helper.getFiveMostLikedComment();
-        System.out.println("tets");
         helper.inactiveUsers_based_on_comments();
+        System.out.println("tets");
+       
     }
 }
