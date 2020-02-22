@@ -8,6 +8,9 @@ package UserInterface;
 import Business.Flight;
 import Business.TravelAgency;
 import java.awt.CardLayout;
+import java.util.Arrays;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -181,7 +184,40 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void srchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srchBtnActionPerformed
+         if (numberTxt.getText() != null) {
+            Flight f1 = travelAgency.searchFlightOnFlightNumber(numberTxt.getText());
+            if(f1 == null){
+                JOptionPane.showMessageDialog(null, "No flights with given number");
+                return;
+            }
+            FlightFoundJPanel flightfound = new FlightFoundJPanel(rightPanel, travelAgency, Arrays.asList(f1));
+            rightPanel.add("FlightFoundJPanel", flightfound);
+            CardLayout layout = (CardLayout) rightPanel.getLayout();
+            layout.next(rightPanel);
+        } else if (arrrLocation.getText() != null) {
+            List<Flight> f2 = travelAgency.searchFlightOnArrLocation(arrrLocation.getText());
+            if(f2 == null){
+                JOptionPane.showMessageDialog(null, "No flight to given arrival");
+                return;
+            }
+            FlightFoundJPanel flightfound = new FlightFoundJPanel(rightPanel, travelAgency, f2);
+            rightPanel.add("FlightFoundJPanel", flightfound);
+            CardLayout layout = (CardLayout) rightPanel.getLayout();
+            layout.next(rightPanel);
+        } else if (depLocation.getText() != null) {
+            List<Flight> f3 = travelAgency.searchFlightOnDepLocation(depLocation.getText());
+            if( f3 == null){
+                JOptionPane.showMessageDialog(null, "No flight from given departure");
+                return;
+            }
 
+            FlightFoundJPanel flightfound = new FlightFoundJPanel(rightPanel, travelAgency, f3);
+            rightPanel.add("FlightFoundJPanel", flightfound);
+            CardLayout layout = (CardLayout) rightPanel.getLayout();
+            layout.next(rightPanel);
+        }else{
+            JOptionPane.showMessageDialog(null, "Please enter number or arrival or departure location");
+        }
                     
     }//GEN-LAST:event_srchBtnActionPerformed
 
