@@ -97,7 +97,7 @@ public class Lab7 {
         helper.getPostWithMostComments();
         helper.getFiveMostLikedComment();
         helper.inactiveUsers_based_on_comments();
-        System.out.println("tets");
+       
        
     }
 }

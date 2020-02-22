@@ -87,7 +87,7 @@ public class AnalysisHelper {
                 maxId = id;
             }
         }
-        System.out.println("Post with most comments " + max + "\n"
+        System.out.println("Post with most comments = " + max + "\n"
                 + posts.get(maxId));
     }
      
