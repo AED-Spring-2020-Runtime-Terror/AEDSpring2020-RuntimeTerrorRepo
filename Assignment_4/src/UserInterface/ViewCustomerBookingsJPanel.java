@@ -46,7 +46,6 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         bokTable = new javax.swing.JTable();
-        hmBtn = new javax.swing.JButton();
         hmBtn1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -69,13 +68,6 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(bokTable);
-
-        hmBtn.setText("Back To Home");
-        hmBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hmBtnActionPerformed(evt);
-            }
-        });
 
         hmBtn1.setText("Back To Home");
         hmBtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -100,11 +92,6 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
                         .addGap(69, 69, 69)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(77, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(211, 211, 211)
-                    .addComponent(hmBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(212, 212, 212)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,11 +103,6 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(123, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(238, 238, 238)
-                    .addComponent(hmBtn)
-                    .addContainerGap(230, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -129,17 +111,9 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
          rightPanel.removeAll();
     }//GEN-LAST:event_hmBtn1ActionPerformed
 
-    private void hmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hmBtnActionPerformed
-        //rightPanel.removeAll();
-        //        rightPanel.remove(this);
-        //       CardLayout layout = (CardLayout) rightPanel.getLayout();
-        //       layout.next(rightPanel);
-    }//GEN-LAST:event_hmBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable bokTable;
-    private javax.swing.JButton hmBtn;
     private javax.swing.JButton hmBtn1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

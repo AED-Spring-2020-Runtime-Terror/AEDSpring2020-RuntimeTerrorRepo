@@ -193,7 +193,10 @@ public class FlightDetailsFetchedJPanel extends javax.swing.JPanel {
             
             JOptionPane.showMessageDialog(null, "one or more fields are required");
         }
-
+        CustomerDetailsEntryJPanel customerDetailsEntryJPanel=new CustomerDetailsEntryJPanel(cardSequenceJPanel,travelAgency,flight);
+        cardSequenceJPanel.add("CustomerDetailsEntryJPanel", customerDetailsEntryJPanel);
+        CardLayout layout= (CardLayout) cardSequenceJPanel.getLayout();
+        layout.next(cardSequenceJPanel);
     }//GEN-LAST:event_bookFlightBtnActionPerformed
 
 
