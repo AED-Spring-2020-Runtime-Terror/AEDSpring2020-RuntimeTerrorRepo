@@ -5,6 +5,7 @@
  */
 package UserInterface.ManageAirliners;
 
+import Business.Airliner;
 import Business.ConfigureBusiness;
 import Business.Flight;
 import Business.TravelAgency;
@@ -22,12 +23,15 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
     /**
      * Creates new form InsertNewFlightJPanel
      */
-    private JPanel rightPanel;
+    private JPanel cardSequenceJPanel;
     private TravelAgency travelAgency;
-   
+    private Airliner airline;
 
-    InsertNewFlightJPanel() {
-            initComponents();
+    InsertNewFlightJPanel(JPanel rightPanel, TravelAgency travelAgency, Airliner airline) {
+        initComponents();
+        this.cardSequenceJPanel = cardSequenceJPanel;
+        this.travelAgency = travelAgency;
+        this.airline = airline;
     }
 
     /**
@@ -166,7 +170,57 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFlightBtnActionPerformed
+        if (ConfigureBusiness.isNullOrEmpty(arrivalTimeTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Arrival Time can't be empty");
+            return;
+        }
 
+        if (ConfigureBusiness.isNullOrEmpty(departTimeTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Departure Time can't be empty");
+            return;
+        }
+        String str = "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]$";
+        if (!arrivalTimeTxt.getText().matches(str) || !departTimeTxt.getText().matches(str)) {
+            JOptionPane.showMessageDialog(null, "Please enter in the format shown!!");
+            return;
+        }
+
+        if (ConfigureBusiness.isNullOrEmpty(fromTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Departure  location can't be empty");
+            return;
+        }
+
+        if (ConfigureBusiness.isNullOrEmpty(flightName.getText())) {
+            JOptionPane.showMessageDialog(null, "Flight Number can't be empty");
+            return;
+        }
+        if (ConfigureBusiness.isNullOrEmpty(toTxt.getText())) {
+            JOptionPane.showMessageDialog(null, "Destination location can't be empty");
+            return;
+        }
+        Flight flight = travelAgency.addFlightInAirline(airline);
+        
+        flight.setArrivalTime(arrivalTimeTxt.getText());
+        flight.setDeparture(fromTxt.getText());
+        flight.setDepartureTime(departTimeTxt.getText());
+        flight.setDestination(toTxt.getText());
+        flight.setNumber(flightName.getText());
+        
+        
+        travelAgency.getMasterSchedule().getFlights().add(flight);
+        
+        cardSequenceJPanel.remove(this);
+        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+        cardLayout.previous(cardSequenceJPanel);
+        
+        
+        Component[] comp = cardSequenceJPanel.getComponents();
+        for(Component c : comp){
+            if(c instanceof ManageAirlinerFightSchedJPanel){
+                ManageAirlinerFightSchedJPanel manageAlinerFightSchedJPanel = (ManageAirlinerFightSchedJPanel) c;
+                manageAlinerFightSchedJPanel.populateFlightOfAirline(airline);
+            }
+        }
     }//GEN-LAST:event_addFlightBtnActionPerformed
 
     private void flightNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightNameActionPerformed
