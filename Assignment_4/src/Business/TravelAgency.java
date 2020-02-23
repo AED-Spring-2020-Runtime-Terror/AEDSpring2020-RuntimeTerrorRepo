@@ -10,5 +10,23 @@ package Business;
  * @author srush
  */
 public class TravelAgency {
-    
+
+    private AirlineDirectory airlinerDirectory;
+
+    public AirlineDirectory getAirlinerDirectory() {
+        return airlinerDirectory;
+    }
+
+    public void setAirlinerDirectory(AirlineDirectory airlinerDirectory) {
+        this.airlinerDirectory = airlinerDirectory;
+    }
+
+    public Airliner addAirline() {
+
+        Airliner airline = new Airliner();
+        Fleet f = new Fleet();
+        airline.setFleet(f);
+        airlinerDirectory.getAirlines().add(airline);
+        return airline;
+    }
 }

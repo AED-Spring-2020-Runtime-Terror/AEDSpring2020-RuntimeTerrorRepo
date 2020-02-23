@@ -6,23 +6,24 @@
 package Business;
 
 import java.util.List;
+
 /**
  *
  * @author srush
  */
-public class FlightSchedule {
- private List<Flight> flights; 
+public class CustomerDirectory {
+     private List<Customer> customers;
 
-    public List<Flight> getFlights() {
-        return flights;
+    public List<Customer> getCustomers() {
+        return customers;
     }
 
-    public void setFlights(List<Flight> flights) {
-        this.flights = flights;
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
     }
 
     @Override
     public String toString() {
-        return "FlightSchedule{" + "flights=" + flights + '}';
+        return "CustomerDirectory{" + "customers=" + customers + '}';
     }
 }
