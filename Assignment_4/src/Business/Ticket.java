@@ -5,27 +5,41 @@
  */
 package Business;
 
+import java.util.Date;
 import java.util.List;
 
 /**
  *
- * @author srush
+ * @author bobba
+ * 
+ * Need to make seats of flight in ticket to null
  */
-public class Flight {
-     private String number;
+public class Ticket {
+    
+    private String pnr;
+    private String seatNumber;
+    private String number;
     private String destination;
     private String departure;
     private String departureTime;
     private String arrivalTime;
+    private String bookingDate;
 
-    public List<Seat> getSeats() {
-        return seats;
+    public String getPnr() {
+        return pnr;
     }
 
-    public void setSeats(List<Seat> seats) {
-        this.seats = seats;
+    public void setPnr(String pnr) {
+        this.pnr = pnr;
     }
-    public List<Seat> seats;
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
 
     public String getNumber() {
         return number;
@@ -51,12 +65,6 @@ public class Flight {
         this.departure = departure;
     }
 
-    @Override
-    public String toString() {
-        return this.number;
-                
-                }
-
     public String getDepartureTime() {
         return departureTime;
     }
@@ -72,4 +80,13 @@ public class Flight {
     public void setArrivalTime(String arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
+
+    public String getBookingDate() {
+        return bookingDate;
+    }
+
+    public void setBookingDate(String bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+    
 }
