@@ -24,13 +24,13 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
      * Creates new form FlightFoundJPanel
      */
     
-    private JPanel rightPanel;
+    private JPanel cardSequenceJPanel;
    private TravelAgency travelAgency;
    private List<Flight> flights;
    
-    public FlightFoundJPanel(JPanel rightPanel, TravelAgency travelAgency, List<Flight> flights) {
+    public FlightFoundJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency, List<Flight> flights) {
        initComponents();
-       this.rightPanel=rightPanel;
+       this.cardSequenceJPanel = cardSequenceJPanel;
        this.flights=flights;
        this.travelAgency= travelAgency;
        populateFlightDetails();
@@ -137,9 +137,9 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
 
     private void bckbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bckbtnActionPerformed
         // TODO add your handling code here:
-        rightPanel.remove(this);
-        CardLayout layout = (CardLayout) rightPanel.getLayout();
-        layout.next(rightPanel);
+        cardSequenceJPanel.remove(this);
+        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+        layout.next(cardSequenceJPanel);
 
     }//GEN-LAST:event_bckbtnActionPerformed
 
@@ -152,10 +152,10 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
         }
         else{
             Flight flight= (Flight)flightDetailtbl.getValueAt(selectedRow,0);
-            FlightDetailsFetchedJPanel panel = new FlightDetailsFetchedJPanel(rightPanel,flight,travelAgency);
-            rightPanel.add("FlightDetailsFetchedJPanel",panel);
-            CardLayout layout= (CardLayout) rightPanel.getLayout();
-            layout.next(rightPanel);
+            FlightDetailsFetchedJPanel panel = new FlightDetailsFetchedJPanel(cardSequenceJPanel,flight,travelAgency);
+            cardSequenceJPanel.add("FlightDetailsFetchedJPanel",panel);
+            CardLayout layout= (CardLayout) cardSequenceJPanel.getLayout();
+            layout.next(cardSequenceJPanel);
         }
 
     }//GEN-LAST:event_fetchdetbtnActionPerformed

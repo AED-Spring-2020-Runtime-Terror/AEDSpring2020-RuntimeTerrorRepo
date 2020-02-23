@@ -25,6 +25,7 @@ import javax.swing.JPanel;
  * @author bobba
  */
 public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
+
     static String numbersRegex = "[0-9]+";
     static String lettersRegex = "^[\\p{L} .'-]+$";
     /**
@@ -36,11 +37,10 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
 
     CustomerDetailsEntryJPanel(JPanel rightPanel, TravelAgency travelAgency, Flight flight) {
 
-            initComponents();
-            this.rightPanel=rightPanel;
-            this.flight=flight;
-            this.travelAgency = travelAgency;
-
+        initComponents();
+        this.rightPanel = rightPanel;
+        this.flight = flight;
+        this.travelAgency = travelAgency;
 
     }
 
@@ -202,78 +202,73 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_mailIdTxtActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-           rightPanel.remove(this);
-       CardLayout layout = (CardLayout) rightPanel.getLayout();
-       layout.next(rightPanel);
+        rightPanel.remove(this);
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
+        layout.next(rightPanel);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void proccedBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedBookBtnActionPerformed
         // Take customer details and add customer to customer directry
         //Add ticket to list in customer 
         // change the seat of avaliablity
-        if (nameTxt.getText().equals("")||mobileTxt.getText().equals("")||mailIdTxt.getText().equals("")||ageTxt.getText().equals(""))
-        //Search fir cusrtomer and we can do even login in this 
+        if (nameTxt.getText().equals("") || mobileTxt.getText().equals("") || mailIdTxt.getText().equals("") || ageTxt.getText().equals("")) //Search fir cusrtomer and we can do even login in this 
         {
             JOptionPane.showMessageDialog(null, "one or more fields are required");
             return;
         }
-        
-        
-        try{
-            int age = Integer.parseInt(ageTxt.getText());             
-        } catch(NumberFormatException ex){ // handle your exception
+
+        try {
+            int age = Integer.parseInt(ageTxt.getText());
+        } catch (NumberFormatException ex) { // handle your exception
             JOptionPane.showMessageDialog(null, "Age should only be numbers.");
-           return;
+            return;
         }
-        
+
         if (!mobileTxt.getText().matches(numbersRegex)) {
-             JOptionPane.showMessageDialog(null, "Mobile number should only be numbers.");
-             return;
+            JOptionPane.showMessageDialog(null, "Mobile number should only be numbers.");
+            return;
         }
-        
+
         if (!nameTxt.getText().matches(lettersRegex)) {
-             JOptionPane.showMessageDialog(null, "Name should only be letters.");
-             return;
+            JOptionPane.showMessageDialog(null, "Name should only be letters.");
+            return;
         }
-        
+
         Customer c = travelAgency.searchCustomerByMail(mailIdTxt.getText());
-        if(c == null){
-         c = travelAgency.createNewCustomer();
-        }        
-      
+        if (c == null) {
+            c = travelAgency.createNewCustomer();
+        }
+
         c.setAge(Integer.parseInt(ageTxt.getText()));
         c.setEmailId(mailIdTxt.getText());
         c.setGender(Gender.valueOf(String.valueOf(genderBox.getSelectedItem())));
         c.setMobileNumber(mobileTxt.getText());
         c.setName(nameTxt.getText());
-        
+
         Ticket t = new Ticket();
         t.setArrivalTime(flight.getArrivalTime());
-        t.setBookingDate(LocalDate.now() + " " + LocalTime.now().getHour() + ":"+LocalTime.now().getMinute());
+        t.setBookingDate(LocalDate.now() + " " + LocalTime.now().getHour() + ":" + LocalTime.now().getMinute());
         t.setDeparture(flight.getDeparture());
         t.setDepartureTime(flight.getDepartureTime());
         t.setDestination(flight.getDestination());
         t.setNumber(flight.getNumber()); //flight number
         t.setPnr(ConfigureBusiness.getSaltString().toUpperCase());
-        
+
         t.setSeatNumber(getFirstAvalSeat(flight.getSeats()));//Need to get teh seat number on the combination selected by ccustomer
-        if(c.getTickets() == null){
+        if (c.getTickets() == null) {
             List<Ticket> tks = new ArrayList<>();
             tks.add(t);
             c.setTickets(tks);
-        }else{
+        } else {
             c.getTickets().add(t);
         }
-        
-        
-        
-        
-        SuccessfulBookingJPanel successfulBookingJPanel = new SuccessfulBookingJPanel(c,travelAgency, rightPanel,flight);
-        
+
+        SuccessfulBookingJPanel successfulBookingJPanel = new SuccessfulBookingJPanel(c, travelAgency, rightPanel, flight);
+
         rightPanel.add("SuccessfulBookingJPanel", successfulBookingJPanel);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);
-        
+
     }//GEN-LAST:event_proccedBookBtnActionPerformed
 
 
@@ -296,15 +291,15 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
     private String getFirstAvalSeat(List<Seat> seats) {
 
         String seatNumer = null;
-        for(Seat s : seats){
-            if(s.isIsAvailable()){
+        for (Seat s : seats) {
+            if (s.isIsAvailable()) {
                 seatNumer = s.getSeatNumber();
                 s.setIsAvailable(false);
                 break;
-            } 
-    }
-        
+            }
+        }
+
         return seatNumer;
 
-    } 
+    }
 }
