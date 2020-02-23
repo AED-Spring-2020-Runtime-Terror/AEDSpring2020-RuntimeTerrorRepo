@@ -42,5 +42,4 @@ public class Airliner {
     public String toString() {
         return this.airlineName;
     }
-     
 }
