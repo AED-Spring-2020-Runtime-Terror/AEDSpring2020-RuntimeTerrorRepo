@@ -8,6 +8,9 @@ package UserInterface;
 import Business.Flight;
 import Business.TravelAgency;
 import java.awt.CardLayout;
+import java.util.Arrays;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -19,13 +22,13 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
     /**
      * Creates new form MasterSearchJPanel
      */
-    private JPanel rightPanel;
-   private TravelAgency travelAgency;
-  
-    MasterSearchJPanel(JPanel rightPanel, TravelAgency travelAgency) {
-         initComponents();
-         this.rightPanel = rightPanel;
-         this.travelAgency = travelAgency;
+    private JPanel cardSequenceJPanel;
+    private TravelAgency travelAgency;
+
+    MasterSearchJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency) {
+        initComponents();
+        this.cardSequenceJPanel = cardSequenceJPanel;
+        this.travelAgency = travelAgency;
     }
 
     /**
@@ -175,14 +178,49 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        rightPanel.remove(this);
-        CardLayout layout = (CardLayout) rightPanel.getLayout();
-        layout.previous(rightPanel);
+        cardSequenceJPanel.remove(this);
+        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+        layout.previous(cardSequenceJPanel);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void srchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srchBtnActionPerformed
+        
+        if (numberTxt.getText() != null) {
+            Flight f1 = travelAgency.searchFlightOnFlightNumber(numberTxt.getText());
+            if (f1 == null) {
+                JOptionPane.showMessageDialog(null, "No flights with given number");
+                return;
+            }
+            FlightFoundJPanel flightfound = new FlightFoundJPanel(cardSequenceJPanel, travelAgency, Arrays.asList(f1));
+            cardSequenceJPanel.add("FlightFoundJPanel", flightfound);
+            CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+            layout.next(cardSequenceJPanel);
+        } else if (arrrLocation.getText() != null) {
+            List<Flight> f2 = travelAgency.searchFlightOnArrLocation(arrrLocation.getText());
+            if (f2 == null) {
+                JOptionPane.showMessageDialog(null, "No flight to given arrival");
+                return;
+            }
+            FlightFoundJPanel flightfound = new FlightFoundJPanel(cardSequenceJPanel, travelAgency, f2);
+            cardSequenceJPanel.add("FlightFoundJPanel", flightfound);
+            CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+            layout.next(cardSequenceJPanel);
+        } else if (depLocation.getText() != null) {
+            List<Flight> f3 = travelAgency.searchFlightOnDepLocation(depLocation.getText());
+            if (f3 == null) {
+                JOptionPane.showMessageDialog(null, "No flight from given departure");
+                return;
+            }
 
-                    
+            FlightFoundJPanel flightfound = new FlightFoundJPanel(cardSequenceJPanel, travelAgency, f3);
+            cardSequenceJPanel.add("FlightFoundJPanel", flightfound);
+            CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+            layout.next(cardSequenceJPanel);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter number or arrival or departure location");
+        }
+
+
     }//GEN-LAST:event_srchBtnActionPerformed
 
     private void depLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depLocationActionPerformed

@@ -43,7 +43,6 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
         cardSequenceJPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 500));
 
         leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

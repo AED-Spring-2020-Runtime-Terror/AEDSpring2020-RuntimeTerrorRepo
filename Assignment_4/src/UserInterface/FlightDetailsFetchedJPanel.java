@@ -22,26 +22,26 @@ public class FlightDetailsFetchedJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FlightDetailsFetchedJPanel
      */
-    private JPanel rightPanel;
+    private JPanel cardSequenceJPanel;
     private Flight flight;
     private TravelAgency travelAgency;
-    
+
     public FlightDetailsFetchedJPanel() {
         initComponents();
     }
 
-    FlightDetailsFetchedJPanel(JPanel rightPanel, Flight flight,TravelAgency travelAgency) {
-        //To change body of generated methods, choose Tools | Templates.
+    FlightDetailsFetchedJPanel(JPanel cardSequenceJPanel, Flight flight, TravelAgency travelAgency) {
+        
         initComponents();
-        this.rightPanel=rightPanel;
-        this.flight=flight;
+        this.cardSequenceJPanel = cardSequenceJPanel;
+        this.flight = flight;
         this.travelAgency = travelAgency;
         populateFlightDetails();
         bookFlightBtn.setEnabled(true);
     }
-    
+
     private void populateFlightDetails() {
-    
+
         flightnumtxt.setText(flight.getNumber());
         desttxt.setText(flight.getDestination());
         origtxt.setText(flight.getDeparture());
@@ -53,6 +53,7 @@ public class FlightDetailsFetchedJPanel extends javax.swing.JPanel {
         arrivtxt.setEnabled(false);
         Departtxt.setEnabled(false);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -175,26 +176,29 @@ public class FlightDetailsFetchedJPanel extends javax.swing.JPanel {
 
     private void BackbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbuttonActionPerformed
         // TODO add your handling code here:
-        rightPanel.remove(this);
-        CardLayout layout = (CardLayout) rightPanel.getLayout();
-        layout.next(rightPanel);
-        Component[] comps = rightPanel.getComponents();
-        for(Component c:comps) {
-            if(c instanceof FlightFoundJPanel) {
+        cardSequenceJPanel.remove(this);
+        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+        layout.next(cardSequenceJPanel);
+        Component[] comps = cardSequenceJPanel.getComponents();
+        for (Component c : comps) {
+            if (c instanceof FlightFoundJPanel) {
                 FlightFoundJPanel panel = (FlightFoundJPanel) c;
             }
         }
     }//GEN-LAST:event_BackbuttonActionPerformed
 
     private void bookFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookFlightBtnActionPerformed
-        if (Departtxt.getText().equals("")||arrivtxt.getText().equals("")||desttxt.getText().equals("")||flightnumtxt.getText().equals("")||origtxt.getText().equals(""))
-        //Search fir cusrtomer and we can do even login in this
-        {
-            JOptionPane.showMessageDialog(null, "oneor more fields are required");
+        if (Departtxt.getText().equals("") || arrivtxt.getText().equals("") || desttxt.getText().equals("")
+                || flightnumtxt.getText().equals("") || origtxt.getText().equals("")) {
+            
+            JOptionPane.showMessageDialog(null, "one or more fields are required");
         }
-
+        CustomerDetailsEntryJPanel customerDetailsEntryJPanel=new CustomerDetailsEntryJPanel(cardSequenceJPanel,travelAgency,flight);
+        cardSequenceJPanel.add("CustomerDetailsEntryJPanel", customerDetailsEntryJPanel);
+        CardLayout layout= (CardLayout) cardSequenceJPanel.getLayout();
+        layout.next(cardSequenceJPanel);
     }//GEN-LAST:event_bookFlightBtnActionPerformed
-        
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Backbutton;
@@ -212,6 +216,4 @@ public class FlightDetailsFetchedJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField origtxt;
     // End of variables declaration//GEN-END:variables
 
-    
 }
-

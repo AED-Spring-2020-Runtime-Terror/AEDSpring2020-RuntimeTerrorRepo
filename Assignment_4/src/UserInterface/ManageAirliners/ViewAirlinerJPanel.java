@@ -5,7 +5,6 @@
  */
 package UserInterface.ManageAirliners;
 
-
 import Business.Airliner;
 import Business.TravelAgency;
 import java.awt.CardLayout;
@@ -15,20 +14,21 @@ import javax.swing.JPanel;
  *
  * @author nived
  */
-
 public class ViewAirlinerJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ViewAirlinerJPanel
      */
-  
     private TravelAgency travelAgency;
     private JPanel cardSequenceJPanel;
-    
-    ViewAirlinerJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency,Airliner airline) {
+    private Airliner airline;
+
+    ViewAirlinerJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency, Airliner airline) {
         initComponents();
         this.travelAgency = travelAgency;
         this.cardSequenceJPanel = cardSequenceJPanel;
+        this.airline = airline;
+        populateFields(airline);
     }
 
     /**
@@ -174,11 +174,24 @@ public class ViewAirlinerJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fleetIdTxtActionPerformed
 
     private void viewFlightScheBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewFlightScheBtnActionPerformed
-
         
-        
+        ManageAirlinerFightSchedJPanel manageAlinerFightSchedJPanel = new ManageAirlinerFightSchedJPanel(cardSequenceJPanel, travelAgency, airline);
+        cardSequenceJPanel.add("ManageAlinerFightSchedJPanel", manageAlinerFightSchedJPanel);
+        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+        cardLayout.next(cardSequenceJPanel);
     }//GEN-LAST:event_viewFlightScheBtnActionPerformed
+    private void populateFields(Airliner airline) {
 
+        airlineNameTxt.setText(airline.getAirlineName());
+        fleetLocationTxt.setText(airline.getFleet().getLocation());
+        fleetIdTxt.setText(airline.getFleet().getId());
+        airPlanesCounttxt.setText(String.valueOf(airline.getFleet().getPlanesOnFleet()));
+
+        airlineNameTxt.setEnabled(false);
+        fleetLocationTxt.setEnabled(false);
+        fleetIdTxt.setEnabled(false);
+        airPlanesCounttxt.setEnabled(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField airPlanesCounttxt;
