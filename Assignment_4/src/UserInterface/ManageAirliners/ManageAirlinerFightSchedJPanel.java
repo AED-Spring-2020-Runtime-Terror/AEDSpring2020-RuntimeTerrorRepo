@@ -11,19 +11,27 @@ import Business.TravelAgency;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author srush
  */
-public class ManageAlinerFightSchedJPanel extends javax.swing.JPanel {
+public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageAlinerFightSchedJPanel
+     * Creates new form ManageAirlinerFightSchedJPanel
      */
-    public ManageAlinerFightSchedJPanel() {
+    private JPanel cardSequenceJPanel;
+    private TravelAgency travelAgency;
+    private Airliner airline;
+    public ManageAirlinerFightSchedJPanel(JPanel rightPanel, TravelAgency travelAgency, Airliner airline) {
         initComponents();
+        this.travelAgency = travelAgency;
+        this.airline = airline;
+        this.cardSequenceJPanel = rightPanel;
+        populateFlightOfAirline(airline);
     }
 
     /**
