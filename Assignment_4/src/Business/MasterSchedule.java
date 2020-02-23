@@ -6,12 +6,14 @@
 package Business;
 
 import java.util.List;
+
 /**
  *
  * @author srush
  */
-public class FlightSchedule {
- private List<Flight> flights; 
+public class MasterSchedule {
+
+    public List<Flight> flights;
 
     public List<Flight> getFlights() {
         return flights;
@@ -23,7 +25,6 @@ public class FlightSchedule {
 
     @Override
     public String toString() {
-        return "FlightSchedule{" + "flights=" + flights + '}';
+        return "MasterSchedule{" + "flights=" + flights + '}';
     }
-
 }

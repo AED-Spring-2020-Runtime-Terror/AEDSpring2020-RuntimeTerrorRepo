@@ -42,4 +42,5 @@ public class Fleet {
     public String toString() {
         return "Fleet{" + "id=" + id + ", location=" + location + ", planesOnFleet=" + planesOnFleet + '}';
     }
+
 }
