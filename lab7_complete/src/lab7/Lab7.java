@@ -102,5 +102,9 @@ public class Lab7 {
         helper.top5ProactiveUsers();
         
         helper.top5InactiveUsers();   
+        
+        helper.getPostWithMostLikedComment();
+
+        helper.top5InactiveUsersBasedOnPosts();
     }
 }
