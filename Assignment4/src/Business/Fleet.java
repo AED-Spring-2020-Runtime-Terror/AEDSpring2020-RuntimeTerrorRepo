@@ -7,19 +7,20 @@ package Business;
 
 /**
  *
- * @author srush
+ * @author nived
  */
 public class Fleet {
-    private String id;
+    
+    private String fleetID;
     private String location;
     private int planesOnFleet;
 
-    public String getId() {
-        return id;
+    public String getFleetID() {
+        return fleetID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setFleetID(String fleetID) {
+        this.fleetID = fleetID;
     }
 
     public String getLocation() {
@@ -40,7 +41,6 @@ public class Fleet {
 
     @Override
     public String toString() {
-        return "Fleet{" + "id=" + id + ", location=" + location + ", planesOnFleet=" + planesOnFleet + '}';
+        return "Fleet{" + "fleetId=" + fleetID + ", location=" + location + ", planesOnFleet=" + planesOnFleet + '}';
     }
-
 }

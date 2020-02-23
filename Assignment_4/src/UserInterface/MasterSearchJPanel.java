@@ -11,6 +11,7 @@ import java.awt.CardLayout;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 
 /**
@@ -184,6 +185,7 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void srchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srchBtnActionPerformed
+
          if (numberTxt.getText() != null) {
             Flight f1 = travelAgency.searchFlightOnFlightNumber(numberTxt.getText());
             if(f1 == null){
@@ -218,7 +220,7 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null, "Please enter number or arrival or departure location");
         }
-                    
+
     }//GEN-LAST:event_srchBtnActionPerformed
 
     private void depLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depLocationActionPerformed

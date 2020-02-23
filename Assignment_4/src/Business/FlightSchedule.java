@@ -6,7 +6,6 @@
 package Business;
 
 import java.util.List;
-
 /**
  *
  * @author srush
@@ -26,5 +25,5 @@ public class FlightSchedule {
     public String toString() {
         return "FlightSchedule{" + "flights=" + flights + '}';
     }
-       
+
 }

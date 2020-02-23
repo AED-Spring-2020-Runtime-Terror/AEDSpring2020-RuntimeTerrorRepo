@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Business;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +59,16 @@ public class TravelAgency {
     @Override
     public String toString() {
         return "TravelAgency{" + "customerDirectory=" + customerDirectory + ", airlineDirectory=" + airlineDirectory + ", masterSchedule=" + masterSchedule + '}';
+
+    private AirlineDirectory airlinerDirectory;
+
+    public AirlineDirectory getAirlinerDirectory() {
+        return airlinerDirectory;
+    }
+
+    public void setAirlinerDirectory(AirlineDirectory airlinerDirectory) {
+        this.airlinerDirectory = airlinerDirectory;
+
     }
 
     public Airliner addAirline() {
@@ -111,6 +120,10 @@ public class TravelAgency {
             }
         }
         return listFlight;
+    }
+
+        airlinerDirectory.getAirlines().add(airline);
+        return airline;
     }
 
 }

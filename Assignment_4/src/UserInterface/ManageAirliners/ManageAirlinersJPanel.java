@@ -165,7 +165,11 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
         DefaultTableModel defaultTableModel = (DefaultTableModel) airlinertable.getModel();
         defaultTableModel.setRowCount(0);
 
+
         for (Airliner airliner : travelAgency.getAirlineDirectory().getAirlines()) {
+
+        for (Airliner airliner : travelAgency.getAirlinerDirectory().getAirlines()) {
+
             Object[] row = new Object[defaultTableModel.getColumnCount()];
             row[0] = airliner;
             row[1] = airliner.getFleet().getLocation();
