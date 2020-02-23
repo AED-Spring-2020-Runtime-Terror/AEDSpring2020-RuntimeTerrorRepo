@@ -62,7 +62,7 @@ public class AnalysisHelper {
             }
         });
 
-        System.out.println("5 most likes comments: ");
+        System.out.println("\n5 most likes comments: ");
         for (int i = 0; i < commentList.size() && i < 5; i++) {
             System.out.println(commentList.get(i));
         }
@@ -79,7 +79,7 @@ public class AnalysisHelper {
         }
 
         double average = totalLikes / totalComments;
-        System.out.println("Average like per comment: " + average);
+        System.out.println("\nAverage like per comment: " + average);
     }
 
     // helper method to return key with minimum value in a Map<Integer, Integer>
@@ -175,4 +175,64 @@ public class AnalysisHelper {
     public void top5InactiveUsers() {
         top5Users(false);
     }
+    
+       //Find the post with most liked comments.
+    public void getPostWithMostLikedComment() {
+        Map<Integer, Integer> postLikesCount = new HashMap<>();
+        Map<Integer, Post> posts = DataStore.getInstance().getPosts();
+
+        for (Post p : posts.values()) {
+            for (Comment c : p.getComments()) {
+                int likes = 0;
+                if (postLikesCount.containsKey(p.getPostId())) {
+                    likes = postLikesCount.get(p.getPostId());
+                }
+                likes += c.getLikes();
+                postLikesCount.put(p.getPostId(), likes);
+            }
+        }
+        int max = 0;
+        int maxId = 0;
+        for (int id : postLikesCount.keySet()) {
+            if (postLikesCount.get(id) > max) {
+                max = postLikesCount.get(id);
+                maxId = id;
+            }
+        }
+        System.out.println("\nPost with most likes: " + max + "\n"
+                + posts.get(maxId));
+    }
+
+    // Top 5 inactive users based on total posts.
+    public void top5InactiveUsersBasedOnPosts() {
+        Map<Integer, Integer> postCountForUsers = new HashMap<>();
+        Map<Integer, Post> posts = DataStore.getInstance().getPosts();
+
+        for (Post post : posts.values()) {
+            int userID = post.getUserId();
+            int currentNumOfPostsForUser = 0;
+            if (postCountForUsers.containsKey(userID)) {
+                currentNumOfPostsForUser = postCountForUsers.get(userID);
+            }
+            currentNumOfPostsForUser++;
+            postCountForUsers.put(userID, currentNumOfPostsForUser);
+        }
+
+        List<Integer> top5InactiveUsers = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Integer currentMostInactiveUser = getKeyWithMinValue(postCountForUsers);
+            if (currentMostInactiveUser != null) {
+                top5InactiveUsers.add(currentMostInactiveUser);
+                postCountForUsers.remove(currentMostInactiveUser);
+            }
+        }
+        Map<Integer, User> usersMap = DataStore.getInstance().getUsers();
+        System.out.println("\n5 most inactive users based on total posts: ");
+        for (Integer userID : top5InactiveUsers) {
+            System.out.println(usersMap.get(userID));
+        }
+    }
+
+   
+
 }

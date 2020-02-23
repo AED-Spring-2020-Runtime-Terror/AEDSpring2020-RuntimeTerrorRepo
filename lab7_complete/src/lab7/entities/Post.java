@@ -47,4 +47,9 @@ public class Post {
     public void setPostId(int postId) {
         this.postId = postId;
     }
+    
+    @Override
+    public String toString() {
+        return "Post{" + "Post id = " + postId + ", UserId = " + userId + ", no. of comments = " + comments.size() + '}';
+    }
 }
