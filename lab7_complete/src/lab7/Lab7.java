@@ -99,6 +99,8 @@ public class Lab7 {
         
         helper.averageLikes();
         
+        helper.top5ProactiveUsers();
         
+        helper.top5InactiveUsers();   
     }
 }
