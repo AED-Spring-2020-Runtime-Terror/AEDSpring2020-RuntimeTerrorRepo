@@ -68,6 +68,7 @@ public class AnalysisHelper {
         }
     }
 
+    // average likes per comment
     public void averageLikes() {
         Map<Integer, Comment> allComments = DataStore.getInstance().getComments();
         int totalLikes = 0;
