@@ -9,13 +9,31 @@ import java.util.List;
 
 /**
  *
- * @author srush
+ * @author bobba
  */
 public class Customer {
-     private String name;
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+    private String name;
     private int age;
     private String emailId;
     private String mobileNumber;
+    private Gender gender;    
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+    private List<Ticket> tickets;
 
     public String getName() {
         return name;
@@ -48,6 +66,4 @@ public class Customer {
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
-
-
 }

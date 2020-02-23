@@ -5,31 +5,35 @@
  */
 package UserInterface;
 
+import Business.Customer;
+import Business.Flight;
 import Business.TravelAgency;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Sudheer Reddy Gaddam
+ * @author bobba
  */
 public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ViewCustomerBookingsJPanel
      */
-    
-        private JPanel rightPanel;
-    private TravelAgency travelAgency;
 
-    ViewCustomerBookingsJPanel(TravelAgency travelAgency, JPanel rightPanel) {
+    private JPanel rightPanel;
+    private TravelAgency travelAgency;
+    private Customer customer;
+
+
+    ViewCustomerBookingsJPanel(TravelAgency travelAgency, Customer customer, JPanel rightPanel) {
         initComponents();
         this.rightPanel=rightPanel;
+            this.customer=customer;
             this.travelAgency = travelAgency;
             populateTbl();
 
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
