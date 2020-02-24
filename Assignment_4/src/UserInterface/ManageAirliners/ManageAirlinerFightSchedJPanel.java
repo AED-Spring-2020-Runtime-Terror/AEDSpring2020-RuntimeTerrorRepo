@@ -26,11 +26,11 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
     private JPanel cardSequenceJPanel;
     private TravelAgency travelAgency;
     private Airliner airline;
-    public ManageAirlinerFightSchedJPanel(JPanel rightPanel, TravelAgency travelAgency, Airliner airline) {
+    public ManageAirlinerFightSchedJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency, Airliner airline) {
         initComponents();
         this.travelAgency = travelAgency;
         this.airline = airline;
-        this.cardSequenceJPanel = rightPanel;
+        this.cardSequenceJPanel = cardSequenceJPanel;
         populateFlightOfAirline(airline);
     }
 
@@ -182,13 +182,16 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
 
     private void updateFltBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFltBtnActionPerformed
 
-        int selectedrow = flightSchTable.getSelectedRow();
+         int selectedrow = flightSchTable.getSelectedRow();
         if (selectedrow < 0) {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         } else {
-            Flight flight = (Flight) flightSchTable.getValueAt(selectedrow, 0);
+               Flight flight = (Flight) flightSchTable.getValueAt(selectedrow, 0);
+               UpdateFlightJPanel updateFlightJPanel = new UpdateFlightJPanel(cardSequenceJPanel, travelAgency, flight,airline);
+               cardSequenceJPanel.add("UpdateFlightJPanel", updateFlightJPanel);
+                CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+                cardLayout.next(cardSequenceJPanel);
         }
-
     }//GEN-LAST:event_updateFltBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
@@ -208,8 +211,10 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void insertNewFliTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertNewFliTxtActionPerformed
-
-
+        InsertNewFlightJPanel insertNewFlightJPanel = new InsertNewFlightJPanel(cardSequenceJPanel, travelAgency,airline);
+        cardSequenceJPanel.add("InsertNewFlightJPanel", insertNewFlightJPanel);
+        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+        cardLayout.next(cardSequenceJPanel);
     }//GEN-LAST:event_insertNewFliTxtActionPerformed
 
     private void searchComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchComboBoxActionPerformed
