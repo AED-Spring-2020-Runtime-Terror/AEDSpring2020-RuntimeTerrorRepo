@@ -55,6 +55,7 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
         fromTxt = new javax.swing.JTextField();
         departTimeTxt = new javax.swing.JTextField();
         arrivalTimeTxt = new javax.swing.JTextField();
+        backBtn = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Create New Flight");
@@ -111,6 +112,13 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
             }
         });
 
+        backBtn.setText("<<Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,7 +141,9 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
                             .addComponent(flightName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(arrivalTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
+                        .addGap(18, 18, 18)
+                        .addComponent(backBtn)
+                        .addGap(172, 172, 172)
                         .addComponent(jLabel1)))
                 .addGap(113, 113, 113))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -143,8 +153,13 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(backBtn)))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -244,10 +259,28 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_arrivalTimeTxtActionPerformed
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        cardSequenceJPanel.remove(this);
+        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+        layout.previous(cardSequenceJPanel);
+
+//        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+//        cardLayout.previous(cardSequenceJPanel);
+//        Component[] comp = cardSequenceJPanel.getComponents();
+//
+//        for (Component c : comp) {
+//            if (c instanceof ManageAirlinersJPanel) {
+//                ManageAirlinersJPanel manageAirlinersJPanel = (ManageAirlinersJPanel) c;
+//                manageAirlinersJPanel.populate(travelAgency);
+//            }
+//        }
+    }//GEN-LAST:event_backBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addFlightBtn;
     private javax.swing.JTextField arrivalTimeTxt;
+    private javax.swing.JButton backBtn;
     private javax.swing.JTextField departTimeTxt;
     private javax.swing.JTextField flightName;
     private javax.swing.JTextField fromTxt;

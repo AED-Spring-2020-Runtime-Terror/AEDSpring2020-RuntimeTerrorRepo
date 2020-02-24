@@ -77,6 +77,7 @@ public class ViewAirlinerJPanel extends javax.swing.JPanel {
             }
         });
 
+        viewFlightScheBtn.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         viewFlightScheBtn.setText("View Flight Schedule");
         viewFlightScheBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

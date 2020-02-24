@@ -183,7 +183,7 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
 
     private void srchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srchBtnActionPerformed
         
-        if (numberTxt.getText() != null) {
+        if (!numberTxt.getText().equals("")) {
             Flight f1 = travelAgency.searchFlightOnFlightNumber(numberTxt.getText());
             if (f1 == null) {
                 JOptionPane.showMessageDialog(null, "No flights with given number");
@@ -193,7 +193,7 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
             cardSequenceJPanel.add("FlightFoundJPanel", flightfound);
             CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
             layout.next(cardSequenceJPanel);
-        } else if (arrrLocation.getText() != null) {
+        } else if (!arrrLocation.getText().equals("")) {
             List<Flight> f2 = travelAgency.searchFlightOnArrLocation(arrrLocation.getText());
             if (f2 == null) {
                 JOptionPane.showMessageDialog(null, "No flight to given arrival");
@@ -203,7 +203,7 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
             cardSequenceJPanel.add("FlightFoundJPanel", flightfound);
             CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
             layout.next(cardSequenceJPanel);
-        } else if (depLocation.getText() != null) {
+        } else if (!depLocation.getText().equals("")) {
             List<Flight> f3 = travelAgency.searchFlightOnDepLocation(depLocation.getText());
             if (f3 == null) {
                 JOptionPane.showMessageDialog(null, "No flight from given departure");
@@ -213,11 +213,11 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
             FlightFoundJPanel flightfound = new FlightFoundJPanel(cardSequenceJPanel, travelAgency, f3);
             cardSequenceJPanel.add("FlightFoundJPanel", flightfound);
             CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
-            layout.next(cardSequenceJPanel);
+            layout.next(cardSequenceJPanel);           
         } else {
             JOptionPane.showMessageDialog(null, "Please enter number or arrival or departure location");
         }
-
+        
 
     }//GEN-LAST:event_srchBtnActionPerformed
 
