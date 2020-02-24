@@ -6,7 +6,6 @@
 package UserInterface.ManageAirliners;
 
 import Business.Airliner;
-import Business.ConfigureBusiness;
 import Business.Flight;
 import Business.TravelAgency;
 import java.awt.CardLayout;
@@ -18,20 +17,24 @@ import javax.swing.JPanel;
  *
  * @author nived
  */
-public class InsertNewFlightJPanel extends javax.swing.JPanel {
+public class UpdateFlightJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form InsertNewFlightJPanel
+     * Creates new form UpdateFlightJPanel
      */
-    private JPanel cardSequenceJPanel;
     private TravelAgency travelAgency;
+    private JPanel cardSequenceJPanel;
+    private Flight flight;
     private Airliner airline;
 
-    InsertNewFlightJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency, Airliner airline) {
+    UpdateFlightJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency, Flight flight, Airliner airline) {
+
         initComponents();
-        this.cardSequenceJPanel = cardSequenceJPanel;
         this.travelAgency = travelAgency;
+        this.cardSequenceJPanel = cardSequenceJPanel;
+        this.flight = flight;
         this.airline = airline;
+        populate(flight);
     }
 
     /**
@@ -45,41 +48,22 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        addFlightBtn = new javax.swing.JButton();
         flightName = new javax.swing.JTextField();
         toTxt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         fromTxt = new javax.swing.JTextField();
         departTimeTxt = new javax.swing.JTextField();
         arrivalTimeTxt = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        updateFlightBtn = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("Create New Flight");
+        jLabel1.setText("Update  Flight");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Number");
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("To");
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("From");
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Departing Time(YYYY-DD-MM hh:mm)");
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setText("Arrival Time(YYYY-DD-MM hh:mm)");
-
-        addFlightBtn.setText("Add");
-        addFlightBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addFlightBtnActionPerformed(evt);
-            }
-        });
 
         flightName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +76,12 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
                 toTxtActionPerformed(evt);
             }
         });
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setText("To");
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("From");
 
         fromTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,118 +101,87 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Arrival Time(YYYY-DD-MM hh:mm)");
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("Departing Time(YYYY-DD-MM hh:mm)");
+
+        updateFlightBtn.setText("Update");
+        updateFlightBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateFlightBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(updateFlightBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fromTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(departTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(flightName, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(arrivalTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jLabel1)))
-                .addGap(113, 113, 113))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(addFlightBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(87, 87, 87)
+                                .addComponent(arrivalTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(309, 309, 309)
+                                .addComponent(toTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(64, 64, 64)
+                                .addComponent(departTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(290, 290, 290)
+                                .addComponent(fromTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(271, 271, 271)
+                                .addComponent(flightName, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(159, 159, 159))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(flightName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(toTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(fromTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(departTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(arrivalTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(addFlightBtn)
-                .addContainerGap())
+                .addGap(31, 31, 31)
+                .addComponent(updateFlightBtn)
+                .addGap(130, 130, 130))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFlightBtnActionPerformed
-        if (ConfigureBusiness.isNullOrEmpty(arrivalTimeTxt.getText())) {
-            JOptionPane.showMessageDialog(null, "Arrival Time can't be empty");
-            return;
-        }
-
-        if (ConfigureBusiness.isNullOrEmpty(departTimeTxt.getText())) {
-            JOptionPane.showMessageDialog(null, "Departure Time can't be empty");
-            return;
-        }
-
-        String str = "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]$";
-        if (!arrivalTimeTxt.getText().matches(str) || !departTimeTxt.getText().matches(str)) {
-            JOptionPane.showMessageDialog(null, "Please enter in the format shown!!");
-            return;
-        }
-
-        if (ConfigureBusiness.isNullOrEmpty(fromTxt.getText())) {
-            JOptionPane.showMessageDialog(null, "Departure  location can't be empty");
-            return;
-        }
-
-        if (ConfigureBusiness.isNullOrEmpty(flightName.getText())) {
-            JOptionPane.showMessageDialog(null, "Flight Number can't be empty");
-            return;
-        }
-        if (ConfigureBusiness.isNullOrEmpty(toTxt.getText())) {
-            JOptionPane.showMessageDialog(null, "Destination location can't be empty");
-            return;
-        }
-        Flight flight = travelAgency.addFlightInAirline(airline);
-
-        flight.setArrivalTime(arrivalTimeTxt.getText());
-        flight.setDeparture(fromTxt.getText());
-        flight.setDepartureTime(departTimeTxt.getText());
-        flight.setDestination(toTxt.getText());
-        flight.setNumber(flightName.getText());
-
-        travelAgency.getMasterSchedule().getFlights().add(flight);
-
-        cardSequenceJPanel.remove(this);
-        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
-        cardLayout.previous(cardSequenceJPanel);
-
-        Component[] comp = cardSequenceJPanel.getComponents();
-        for (Component c : comp) {
-            if (c instanceof ManageAirlinerFightSchedJPanel) {
-                ManageAirlinerFightSchedJPanel manageAlinerFightSchedJPanel = (ManageAirlinerFightSchedJPanel) c;
-                manageAlinerFightSchedJPanel.populateFlightOfAirline(airline);
-            }
-        }
-    }//GEN-LAST:event_addFlightBtnActionPerformed
 
     private void flightNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightNameActionPerformed
         // TODO add your handling code here:
@@ -244,9 +203,45 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_arrivalTimeTxtActionPerformed
 
+    private void updateFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFlightBtnActionPerformed
+        if (departTimeTxt.getText().equals("") || arrivalTimeTxt.getText().equals("") || fromTxt.getText().equals("") || toTxt.getText().equals("") || flightName.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Enter all the fields");
+        }
+
+        flight.setArrivalTime(arrivalTimeTxt.getText());
+        flight.setDeparture(fromTxt.getText());
+        flight.setDepartureTime(departTimeTxt.getText());
+        flight.setDestination(toTxt.getText());
+        flight.setNumber(flightName.getText());
+
+        cardSequenceJPanel.remove(this);
+        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+        cardLayout.previous(cardSequenceJPanel);
+
+        Component[] comp = cardSequenceJPanel.getComponents();
+        for (Component c : comp) {
+            if (c instanceof ManageAirlinerFightSchedJPanel) {
+                ManageAirlinerFightSchedJPanel manageAlinerFightSchedJPanel = (ManageAirlinerFightSchedJPanel) c;
+                manageAlinerFightSchedJPanel.populateFlightOfAirline(airline);
+            }
+        }
+    }//GEN-LAST:event_updateFlightBtnActionPerformed
+    private void populate(Flight flight) {
+
+        flightName.setText(flight.getNumber());
+        toTxt.setText(flight.getDestination());
+        fromTxt.setText(flight.getDeparture());
+        arrivalTimeTxt.setText(flight.getArrivalTime());
+        departTimeTxt.setText(flight.getDepartureTime());
+
+        flightName.setEnabled(true);
+        toTxt.setEnabled(true);
+        fromTxt.setEnabled(true);
+        arrivalTimeTxt.setEnabled(true);
+        departTimeTxt.setEnabled(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addFlightBtn;
     private javax.swing.JTextField arrivalTimeTxt;
     private javax.swing.JTextField departTimeTxt;
     private javax.swing.JTextField flightName;
@@ -258,5 +253,7 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField toTxt;
+    private javax.swing.JButton updateFlightBtn;
     // End of variables declaration//GEN-END:variables
+
 }
