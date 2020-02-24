@@ -27,80 +27,111 @@ public class ConfigureBusiness {
         AirlineDirectory airlineDirectory = new AirlineDirectory();
 
         Airliner airline = new Airliner();
-        
 
         Fleet fleet = new Fleet();
         
         fleet.setId("F-01");
-        fleet.setLocation("BOSTON-01");
+        fleet.setLocation("Atlanta");
         fleet.setPlanesOnFleet(15);
 
         airline.setFleet(fleet);
-        airline.setAirlineName("United Airlines");
+        airline.setAirlineName("Delta");
 
         FlightSchedule flightSchedule = new FlightSchedule();
 
         Flight flightForMaster = new Flight();
         Flight flightForMaster1 = new Flight();
+        Flight flightForMaster4 = new Flight();
 
         flightForMaster.setSeats(getSeatsForFlightInitially());
-
-        flightForMaster.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 22) + " " + LocalTime.of(12, 10));
-
+        flightForMaster.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 22) + " " + LocalTime.of(07, 45));
         flightForMaster.setDepartureTime(LocalDate.of(2020, Month.FEBRUARY, 22) + " " + LocalTime.of(10, 10));
-
-        flightForMaster.setDeparture("BOSTON");
-        flightForMaster.setDestination("NEWARK");
-        flightForMaster.setNumber("UA091");
+        flightForMaster.setDeparture("Boston");
+        flightForMaster.setDestination("Newark");
+        flightForMaster.setNumber("D091");
+        
+        flightForMaster1.setSeats(getSeatsForFlightInitially());
+        flightForMaster1.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 23) + " " + LocalTime.of(14, 16));
+        flightForMaster1.setDepartureTime(LocalDate.of(2020, Month.FEBRUARY, 23) + " " + LocalTime.of(16, 00));
+        flightForMaster1.setDeparture("Detroit");
+        flightForMaster1.setDestination("Phoenix");
+        flightForMaster1.setNumber("D077");
+        
+        flightForMaster4.setSeats(getSeatsForFlightInitially());
+        flightForMaster4.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 24) + " " + LocalTime.of(6, 30));
+        flightForMaster4.setDepartureTime(LocalDate.of(2020, Month.FEBRUARY, 24) + " " + LocalTime.of(11, 00));
+        flightForMaster4.setDeparture("Burlington");
+        flightForMaster4.setDestination("Portland");
+        flightForMaster4.setNumber("D054");
         
         Fleet fleet1 = new Fleet();
         
-        fleet1.setId("F-02");
-        fleet1.setLocation("DUBAI-91");
-        fleet1.setPlanesOnFleet(20);
-
-        airline.setFleet(fleet1);
-        airline.setAirlineName("United Emirates");
-
-        flightForMaster1.setSeats(getSeatsForFlightInitially());
-
-        flightForMaster1.setArrivalTime(LocalDate.of(2020, Month.MARCH, 19) + " " + LocalTime.of(11, 10));
-
-        flightForMaster1.setDepartureTime(LocalDate.of(2020, Month.MARCH, 20) + " " + LocalTime.of(5, 10));
-        flightForMaster1.setDeparture("NEW YORK");
-        flightForMaster1.setDestination("DALLA");
-        flightForMaster1.setNumber("UA897");
+        Airliner airline1 = new Airliner();
         
-        flightForMaster1.setSeats(getSeatsForFlightInitially());
-
-        flightForMaster1.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 26) + " " + LocalTime.of(23, 10));
-
-        flightForMaster1.setDepartureTime(LocalDate.of(2020, Month.FEBRUARY, 26) + " " + LocalTime.of(4, 10));
-        flightForMaster1.setDeparture("DUBAI");
-        flightForMaster1.setDestination("HYDERABAD");
-        flightForMaster1.setNumber("UA786");
+        fleet1.setId("F-02");
+        fleet1.setLocation("Long Island City");
+        fleet1.setPlanesOnFleet(60);
+        
+        airline1.setAirlineName("JetBlue");
+        airline1.setFleet(fleet1);
+                
+        FlightSchedule flightSchedule1 = new FlightSchedule();
+        
+        Flight flightForMaster2 = new Flight();
+        Flight flightForMaster3 = new Flight();
+        Flight flightForMaster5 = new Flight();
+        
+        flightForMaster2.setSeats(getSeatsForFlightInitially());
+        flightForMaster2.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 24) + " " + LocalTime.of(9, 45));
+        flightForMaster2.setDepartureTime(LocalDate.of(2020, Month.FEBRUARY, 24) + " " + LocalTime.of(15, 50));
+        flightForMaster2.setDeparture("Denver, CO (DEN)");
+        flightForMaster2.setDestination("Richmond, VA (RIC)");
+        flightForMaster2.setNumber("JB897");
+        
+        flightForMaster3.setSeats(getSeatsForFlightInitially());
+        flightForMaster3.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 23) + " " + LocalTime.of(10, 10));
+        flightForMaster3.setDepartureTime(LocalDate.of(2020, Month.FEBRUARY, 23) + " " + LocalTime.of(16, 00));
+        flightForMaster3.setDeparture("Philadelphia, PA (PHL)");
+        flightForMaster3.setDestination("Charlotte, NC (CLT)");
+        flightForMaster3.setNumber("JB786");
+        
+        flightForMaster5.setSeats(getSeatsForFlightInitially());
+        flightForMaster5.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 23) + " " + LocalTime.of(3, 10));
+        flightForMaster5.setDepartureTime(LocalDate.of(2020, Month.FEBRUARY, 23) + " " + LocalTime.of(7, 00));
+        flightForMaster5.setDeparture("Detroit, MI (DTW)");
+        flightForMaster5.setDestination("Seattle, WA (SEA)");
+        flightForMaster5.setNumber("JB543");
 
         List<Flight> forFSch = new ArrayList<>();
-
         List<Flight> forFSch1 = new ArrayList<>();
-
+        
+        //Airliner Delta flights
         forFSch.add(flightForMaster);
         forFSch.add(flightForMaster1);
+        forFSch.add(flightForMaster4);
+        
+        //Airliner JetBlue flights
+        forFSch1.add(flightForMaster2);
+        forFSch1.add(flightForMaster3);
+        forFSch1.add(flightForMaster5);
 
-        forFSch1.add(flightForMaster);
-        forFSch1.add(flightForMaster1);
 
         flightSchedule.setFlights(forFSch);
+        flightSchedule1.setFlights(forFSch1);
 
         airline.setFlightSchedule(flightSchedule); 
-
-        List<Airliner> ailines = new ArrayList<>();
-        ailines.add(airline);
-        airlineDirectory.setAirlines(ailines);
+        airline1.setFlightSchedule(flightSchedule1);
+        
+        List<Airliner> airlines = new ArrayList<>();
+        airlines.add(airline);
+        airlines.add(airline1);
+        
+        airlineDirectory.setAirlines(airlines);
         airlineDirectory.setCreateDate(new Date());
         airlineDirectory.setUpdateDate(new Date()); 
-
+        
         MasterSchedule masterSchedule = new MasterSchedule();
+        masterSchedule.setFlights(forFSch);
         masterSchedule.setFlights(forFSch1);
 
         CustomerDirectory customerDirectory = new CustomerDirectory();
@@ -124,12 +155,12 @@ public class ConfigureBusiness {
         tkts.add(ticket);
 
         Flight fTicket = new Flight();
+        
         fTicket.setSeats(null);
         fTicket.setArrivalTime(LocalDate.of(2020, Month.FEBRUARY, 22) + " " + LocalTime.of(10, 10));
         fTicket.setDeparture(flightForMaster.getDeparture());
         fTicket.setDestination(flightForMaster.getDestination());
         fTicket.setNumber(flightForMaster.getNumber());
-
         fTicket.setDepartureTime(LocalDate.of(2020, Month.FEBRUARY, 22) + " " + LocalTime.of(12, 10));
 
         customer.setTickets(tkts);
@@ -195,8 +226,8 @@ public class ConfigureBusiness {
     }
 
     public static void main(String[] args) {
-        TravelAgency t = configure();
-        System.out.println(LocalDate.of(2020, Month.FEBRUARY, 22) + " " + LocalTime.of(22, 10));
+         configure();
+       // System.out.println(LocalDate.of(2020, Month.FEBRUARY, 22) + " " + LocalTime.of(22, 10));
     }
 
     static LocalTime getDate() {

@@ -52,7 +52,7 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
                 manageAirlinersBtnActionPerformed(evt);
             }
         });
-        leftPanel.add(manageAirlinersBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
+        leftPanel.add(manageAirlinersBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 130, -1));
 
         searchBtn.setText("Search for Booking");
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +60,7 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
                 searchBtnActionPerformed(evt);
             }
         });
-        leftPanel.add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
+        leftPanel.add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, -1, -1));
 
         jSplitPane1.setLeftComponent(leftPanel);
 
@@ -71,11 +71,11 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
