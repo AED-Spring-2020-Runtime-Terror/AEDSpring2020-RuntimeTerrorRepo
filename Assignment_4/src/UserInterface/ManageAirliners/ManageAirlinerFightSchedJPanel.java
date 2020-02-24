@@ -54,7 +54,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
         backBtnFliSch = new javax.swing.JButton();
         SearchBtn = new javax.swing.JButton();
 
-        updateFltBtn.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        updateFltBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         updateFltBtn.setText("Update Flight Details");
         updateFltBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +62,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         cancelBtn.setText("Cancel Flight");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +70,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
             }
         });
 
-        insertNewFliTxt.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        insertNewFliTxt.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         insertNewFliTxt.setText("Insert New Flight");
         insertNewFliTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +113,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
             }
         });
 
-        SearchBtn.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        SearchBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         SearchBtn.setText("Search");
         SearchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(220, 220, 220)
                             .addComponent(labelHead)))
-                    .addContainerGap(49, Short.MAX_VALUE)))
+                    .addContainerGap(64, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,11 +199,10 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
         } else {
 
             Flight flight = (Flight) flightSchTable.getValueAt(selectedrow, 0);
+            airline.getFlightSchedule().getFlights().remove(flight);
+            travelAgency.getMasterSchedule().getFlights().remove(flight);
 
-//            Airliner.getFlightSchedule().getFlights().remove(flight);
-//            TravelAgency.getMasterSchedule().getFlights().remove(flight);
-//
-//            populateFlightOfAirline(airliner);
+            populateFlightOfAirline(airline);
 
         }
     }//GEN-LAST:event_cancelBtnActionPerformed
@@ -218,9 +217,9 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_searchComboBoxActionPerformed
 
     private void backBtnFliSchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnFliSchActionPerformed
-//        card.remove(this);
-//        CardLayout cardLayout = (CardLayout) rightPanel.getLayout();
-//        cardLayout.previous(rightPanel);
+        cardSequenceJPanel.remove(this);
+        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+        cardLayout.previous(cardSequenceJPanel);
     }//GEN-LAST:event_backBtnFliSchActionPerformed
 
     private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBtnActionPerformed
