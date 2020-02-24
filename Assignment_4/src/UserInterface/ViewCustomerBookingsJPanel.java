@@ -6,7 +6,7 @@
 package UserInterface;
 
 import Business.Customer;
-import Business.Flight;
+import Business.Ticket;
 import Business.TravelAgency;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -21,14 +21,14 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
      * Creates new form ViewCustomerBookingsJPanel
      */
 
-    private JPanel rightPanel;
+    private JPanel cardSequenceJPanel;
     private TravelAgency travelAgency;
     private Customer customer;
 
 
-    ViewCustomerBookingsJPanel(TravelAgency travelAgency, Customer customer, JPanel rightPanel) {
+    ViewCustomerBookingsJPanel(TravelAgency travelAgency, Customer customer, JPanel cardSequenceJPanel) {
         initComponents();
-        this.rightPanel=rightPanel;
+        this.cardSequenceJPanel=cardSequenceJPanel;
             this.customer=customer;
             this.travelAgency = travelAgency;
             populateTbl();
@@ -86,29 +86,29 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
                         .addGap(15, 15, 15)
                         .addComponent(hmBtn1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(jLabel1)))
+                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(hmBtn1)
-                .addGap(13, 13, 13)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
+                .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addGap(123, 123, 123))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void hmBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hmBtn1ActionPerformed
         // TODO add your handling code here:
-         rightPanel.removeAll();
+         cardSequenceJPanel.removeAll();
     }//GEN-LAST:event_hmBtn1ActionPerformed
 
 
@@ -126,8 +126,17 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
         
         dtm.setRowCount(0);
 
-       
+        for (Ticket t : customer.getTickets()) {
+            Object[] row = new Object[dtm.getColumnCount()];
 
+            row[0] = t.getDeparture();
+            row[1] = t.getDestination();
+            row[2] = t.getPnr();
+            row[3] = t.getSeatNumber();
 
+            dtm.addRow(row);
+
+        }
     }
 }
+
