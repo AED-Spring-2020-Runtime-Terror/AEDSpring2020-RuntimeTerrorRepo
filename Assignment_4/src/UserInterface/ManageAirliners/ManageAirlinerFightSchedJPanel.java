@@ -26,6 +26,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
     private JPanel cardSequenceJPanel;
     private TravelAgency travelAgency;
     private Airliner airline;
+
     public ManageAirlinerFightSchedJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency, Airliner airline) {
         initComponents();
         this.travelAgency = travelAgency;
@@ -184,15 +185,15 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
 
     private void updateFltBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFltBtnActionPerformed
 
-         int selectedrow = flightSchTable.getSelectedRow();
+        int selectedrow = flightSchTable.getSelectedRow();
         if (selectedrow < 0) {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         } else {
-               Flight flight = (Flight) flightSchTable.getValueAt(selectedrow, 0);
-               UpdateFlightJPanel updateFlightJPanel = new UpdateFlightJPanel(cardSequenceJPanel, travelAgency, flight,airline);
-               cardSequenceJPanel.add("UpdateFlightJPanel", updateFlightJPanel);
-                CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
-                cardLayout.next(cardSequenceJPanel);
+            Flight flight = (Flight) flightSchTable.getValueAt(selectedrow, 0);
+            UpdateFlightJPanel updateFlightJPanel = new UpdateFlightJPanel(cardSequenceJPanel, travelAgency, flight, airline);
+            cardSequenceJPanel.add("UpdateFlightJPanel", updateFlightJPanel);
+            CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
+            cardLayout.next(cardSequenceJPanel);
         }
     }//GEN-LAST:event_updateFltBtnActionPerformed
 
@@ -213,7 +214,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void insertNewFliTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertNewFliTxtActionPerformed
-        InsertNewFlightJPanel insertNewFlightJPanel = new InsertNewFlightJPanel(cardSequenceJPanel, travelAgency,airline);
+        InsertNewFlightJPanel insertNewFlightJPanel = new InsertNewFlightJPanel(cardSequenceJPanel, travelAgency, airline);
         cardSequenceJPanel.add("InsertNewFlightJPanel", insertNewFlightJPanel);
         CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
         cardLayout.next(cardSequenceJPanel);
@@ -239,29 +240,29 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
         switch (comboTxt) {
             case "Search By Flight Number":
                 Flight f = travelagency.searchFlightOnFlightNumber(searchTxt);
-                if (f != null){
+                if (f != null) {
                     populateSearchedFlight(f);
-                }else{
-                    JOptionPane.showMessageDialog(null, "NO flights found");     
-                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "NO flights found");
+                }
                 break;
 
             case "Search By Departure Location":
-                List<Flight> depFlightList = travelagency.searchFlightOnDepLocation(searchTxt);
-                if(depFlightList != null){
-                populateSearchedFlight(depFlightList);
-                }else{
-                    JOptionPane.showMessageDialog(null, "NO flights found");     
-                    }
+                List<Flight> depFlightList = travelagency.searchFlightOnDepLocation(searchTxt, airline);
+                if (depFlightList != null) {
+                    populateSearchedFlight(depFlightList);
+                } else {
+                    JOptionPane.showMessageDialog(null, "NO flights found");
+                }
                 break;
 
             case "Search By Arrival Location":
                 List<Flight> arrFlightList = travelagency.searchFlightOnArrLocation(searchTxt);
-                if(arrFlightList != null){
-                populateSearchedFlight(arrFlightList);
-                }else{
-                    JOptionPane.showMessageDialog(null, "NO flights found");     
-                    }
+                if (arrFlightList != null) {
+                    populateSearchedFlight(arrFlightList);
+                } else {
+                    JOptionPane.showMessageDialog(null, "NO flights found");
+                }
                 break;
         }
     }//GEN-LAST:event_SearchBtnActionPerformed

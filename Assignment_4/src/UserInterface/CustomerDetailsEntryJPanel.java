@@ -30,7 +30,7 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
 
     static String numbersRegex = "[0-9]+";
     static String lettersRegex = "^[\\p{L} .'-]+$";
-    
+
     /**
      * Creates new form CustomerDetailsEntryJPanel
      */
@@ -229,9 +229,7 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void proccedBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proccedBookBtnActionPerformed
-        // Take customer details and add customer to customer directry
-        //Add ticket to list in customer 
-        // change the seat of avaliablity
+
         if (nameTxt.getText().equals("") || mobileTxt.getText().equals("") || mailIdTxt.getText().equals("") || ageTxt.getText().equals("")) //Search fir cusrtomer and we can do even login in this 
         {
             JOptionPane.showMessageDialog(null, "one or more fields are required");
@@ -254,16 +252,14 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Name should only be letters.");
             return;
         }
-        
-        String username =mailIdTxt.getText();
-        if(usernamePatternCorrect()==false)
-        {
-           JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
-           return;
+
+        String username = mailIdTxt.getText();
+        if (usernamePatternCorrect() == false) {
+            JOptionPane.showMessageDialog(null, "Username should be in the format of xx_xx@xx.xx");
+            return;
         }
 
- //       Customer c = travelAgency.searchCustomerByMail(mailIdTxt.getText());
-         Customer c = new Customer();
+        Customer c = new Customer();
         if (c == null) {
             c = travelAgency.createNewCustomer();
         }
@@ -283,7 +279,7 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
         t.setNumber(flight.getNumber()); //flight number
         t.setPnr(ConfigureBusiness.getSaltString().toUpperCase());
 
-        t.setSeatNumber(getFirstAvalSeat(flight.getSeats()));//Need to get teh seat number on the combination selected by ccustomer
+        t.setSeatNumber(getFirstAvalSeat(flight.getSeats()));
         if (c.getTickets() == null) {
             List<Ticket> tks = new ArrayList<>();
             tks.add(t);
@@ -299,7 +295,7 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
         layout.next(rightPanel);
 
     }//GEN-LAST:event_proccedBookBtnActionPerformed
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ageTxt;
@@ -331,11 +327,11 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
         return seatNumer;
 
     }
-    
-    private boolean usernamePatternCorrect(){
-        Pattern p=Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
-        Matcher m=p.matcher(mailIdTxt.getText());
-        boolean b=m.matches();
+
+    private boolean usernamePatternCorrect() {
+        Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Matcher m = p.matcher(mailIdTxt.getText());
+        boolean b = m.matches();
         return b;
     }
 }

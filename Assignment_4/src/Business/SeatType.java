@@ -10,7 +10,7 @@ package Business;
  * @author bobba
  */
 public enum SeatType {
-    
+
     ECONOMY, BUSINESS;
-    
+
 }

@@ -136,6 +136,21 @@ public class TravelAgency {
     public List<Flight> searchFlightOnDepLocation(String text) {
         List<Flight> listFlight = null;
         for (Flight f : travelAgency.getMasterSchedule().getFlights()) {
+
+            if (text.equalsIgnoreCase(f.getDeparture())) {
+                if (listFlight == null) {
+                    listFlight = new ArrayList<>();
+                }
+                listFlight.add(f);
+
+            }
+        }
+        return listFlight;
+    }
+
+    public List<Flight> searchFlightOnDepLocation(String text, Airliner airline) {
+        List<Flight> listFlight = null;
+        for (Flight f : airline.getFlightSchedule().getFlights()) {
             if (text.equalsIgnoreCase(f.getDeparture())) {
                 if (listFlight == null) {
                     listFlight = new ArrayList<>();
@@ -150,6 +165,19 @@ public class TravelAgency {
     public List<Flight> searchFlightOnArrLocation(String text) {
         List<Flight> listFlight = null;
         for (Flight f : travelAgency.getMasterSchedule().getFlights()) {
+            if (text.equalsIgnoreCase(f.getDestination())) {
+                if (listFlight == null) {
+                    listFlight = new ArrayList<>();
+                }
+                listFlight.add(f);
+            }
+        }
+        return listFlight;
+    }
+
+    public List<Flight> searchFlightOnArrLocation(String text, Airliner airline) {
+        List<Flight> listFlight = null;
+        for (Flight f : airline.getFlightSchedule().getFlights()) {
             if (text.equalsIgnoreCase(f.getDestination())) {
                 if (listFlight == null) {
                     listFlight = new ArrayList<>();

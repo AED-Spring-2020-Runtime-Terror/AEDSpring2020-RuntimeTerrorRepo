@@ -10,6 +10,7 @@ package Business;
  * @author srush
  */
 public class Fleet {
+
     private String id;
     private String location;
     private int planesOnFleet;
@@ -42,5 +43,5 @@ public class Fleet {
     public String toString() {
         return "Fleet{" + "id=" + id + ", location=" + location + ", planesOnFleet=" + planesOnFleet + '}';
     }
-    
+
 }

@@ -169,9 +169,9 @@ public class ViewAirlinerJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fleetIdTxtActionPerformed
 
     private void viewFlightScheBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewFlightScheBtnActionPerformed
-        
-        ManageAirlinerFightSchedJPanel manageAlinerFightSchedJPanel = new ManageAirlinerFightSchedJPanel(cardSequenceJPanel, travelAgency, airline);
-        cardSequenceJPanel.add("ManageAlinerFightSchedJPanel", manageAlinerFightSchedJPanel);
+
+        ManageAirlinerFightSchedJPanel manageAirlinerFightSchedJPanel = new ManageAirlinerFightSchedJPanel(cardSequenceJPanel, travelAgency, airline);
+        cardSequenceJPanel.add("ManageAirlinerFightSchedJPanel", manageAirlinerFightSchedJPanel);
         CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
         cardLayout.next(cardSequenceJPanel);
     }//GEN-LAST:event_viewFlightScheBtnActionPerformed

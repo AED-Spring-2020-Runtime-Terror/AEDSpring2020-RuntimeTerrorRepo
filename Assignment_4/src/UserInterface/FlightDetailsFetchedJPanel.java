@@ -9,7 +9,6 @@ import Business.Flight;
 import Business.TravelAgency;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -31,7 +30,7 @@ public class FlightDetailsFetchedJPanel extends javax.swing.JPanel {
     }
 
     FlightDetailsFetchedJPanel(JPanel cardSequenceJPanel, Flight flight, TravelAgency travelAgency) {
-        
+
         initComponents();
         this.cardSequenceJPanel = cardSequenceJPanel;
         this.flight = flight;
@@ -190,12 +189,12 @@ public class FlightDetailsFetchedJPanel extends javax.swing.JPanel {
     private void bookFlightBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookFlightBtnActionPerformed
         if (Departtxt.getText().equals("") || arrivtxt.getText().equals("") || desttxt.getText().equals("")
                 || flightnumtxt.getText().equals("") || origtxt.getText().equals("")) {
-            
+
             JOptionPane.showMessageDialog(null, "one or more fields are required");
         }
-        CustomerDetailsEntryJPanel customerDetailsEntryJPanel=new CustomerDetailsEntryJPanel(cardSequenceJPanel,travelAgency,flight);
+        CustomerDetailsEntryJPanel customerDetailsEntryJPanel = new CustomerDetailsEntryJPanel(cardSequenceJPanel, travelAgency, flight);
         cardSequenceJPanel.add("CustomerDetailsEntryJPanel", customerDetailsEntryJPanel);
-        CardLayout layout= (CardLayout) cardSequenceJPanel.getLayout();
+        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
         layout.next(cardSequenceJPanel);
     }//GEN-LAST:event_bookFlightBtnActionPerformed
 

@@ -6,7 +6,6 @@
 package UserInterface;
 
 import Business.Flight;
-import Business.FlightSchedule;
 import Business.TravelAgency;
 import java.awt.CardLayout;
 import java.util.Arrays;
@@ -45,9 +44,7 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         numberTxt = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
         backBtn = new javax.swing.JButton();
         srchBtn = new javax.swing.JButton();
         depLocation = new javax.swing.JTextField();
@@ -65,19 +62,9 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Arrival Location");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setText("Preferred Time");
-
         numberTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberTxtActionPerformed(evt);
-            }
-        });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MORNING", "AFTERNOON", "NIGHT" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -117,16 +104,13 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
                         .addGap(111, 111, 111)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(99, 99, 99)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(numberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(depLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(arrrLocation)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(arrrLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(backBtn))
@@ -147,34 +131,28 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel3)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel4)
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(numberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(depLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(arrrLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(numberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(depLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44)
-                .addComponent(srchBtn)
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(arrrLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(103, 103, 103))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(srchBtn)
+                        .addGap(34, 34, 34)))
+                .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void numberTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numberTxtActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         cardSequenceJPanel.remove(this);
@@ -183,7 +161,7 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void srchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srchBtnActionPerformed
-        
+
         if (!numberTxt.getText().equals("")) {
             Flight f1 = travelAgency.searchFlightOnFlightNumber(numberTxt.getText());
             if (f1 == null) {
@@ -214,12 +192,10 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
             FlightFoundJPanel flightfound = new FlightFoundJPanel(cardSequenceJPanel, travelAgency, f3);
             cardSequenceJPanel.add("FlightFoundJPanel", flightfound);
             CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
-            layout.next(cardSequenceJPanel);           
+            layout.next(cardSequenceJPanel);
         } else {
             JOptionPane.showMessageDialog(null, "Please enter number or arrival or departure location");
         }
-        
-
     }//GEN-LAST:event_srchBtnActionPerformed
 
     private void depLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depLocationActionPerformed
@@ -235,12 +211,10 @@ public class MasterSearchJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField arrrLocation;
     private javax.swing.JButton backBtn;
     private javax.swing.JTextField depLocation;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField numberTxt;
     private javax.swing.JButton srchBtn;
     // End of variables declaration//GEN-END:variables

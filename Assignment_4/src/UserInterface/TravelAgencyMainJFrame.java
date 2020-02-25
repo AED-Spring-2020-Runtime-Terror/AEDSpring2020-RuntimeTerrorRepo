@@ -24,7 +24,7 @@ public class TravelAgencyMainJFrame extends javax.swing.JFrame {
     public TravelAgencyMainJFrame() {
         initComponents();
         travelAgency = ConfigureBusiness.configure();
-        
+
     }
 
     /**

@@ -263,17 +263,6 @@ public class InsertNewFlightJPanel extends javax.swing.JPanel {
         cardSequenceJPanel.remove(this);
         CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
         layout.previous(cardSequenceJPanel);
-
-//        CardLayout cardLayout = (CardLayout) cardSequenceJPanel.getLayout();
-//        cardLayout.previous(cardSequenceJPanel);
-//        Component[] comp = cardSequenceJPanel.getComponents();
-//
-//        for (Component c : comp) {
-//            if (c instanceof ManageAirlinersJPanel) {
-//                ManageAirlinersJPanel manageAirlinersJPanel = (ManageAirlinersJPanel) c;
-//                manageAirlinersJPanel.populate(travelAgency);
-//            }
-//        }
     }//GEN-LAST:event_backBtnActionPerformed
 
 

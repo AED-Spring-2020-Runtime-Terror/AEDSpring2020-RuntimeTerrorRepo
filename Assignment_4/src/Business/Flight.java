@@ -12,7 +12,8 @@ import java.util.List;
  * @author srush
  */
 public class Flight {
-     private String number;
+
+    private String number;
     private String destination;
     private String departure;
     private String departureTime;
@@ -54,8 +55,8 @@ public class Flight {
     @Override
     public String toString() {
         return this.number;
-                
-                }
+
+    }
 
     public String getDepartureTime() {
         return departureTime;
