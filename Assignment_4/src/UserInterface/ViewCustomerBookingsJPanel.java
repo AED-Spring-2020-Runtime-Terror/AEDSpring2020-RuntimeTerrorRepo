@@ -56,7 +56,7 @@ public class ViewCustomerBookingsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "From", "To", "PNR No", "Seat Number"
+                "Departure Location", "Arrival Location", "PNR No", "Seat Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {

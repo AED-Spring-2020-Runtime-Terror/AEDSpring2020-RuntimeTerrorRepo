@@ -54,7 +54,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
         backBtnFliSch = new javax.swing.JButton();
         SearchBtn = new javax.swing.JButton();
 
-        updateFltBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        updateFltBtn.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         updateFltBtn.setText("Update Flight Details");
         updateFltBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +62,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cancelBtn.setText("Cancel Flight");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +70,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
             }
         });
 
-        insertNewFliTxt.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        insertNewFliTxt.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         insertNewFliTxt.setText("Insert New Flight");
         insertNewFliTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +93,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Flight Number", "From", "To", "Departure Time", "Arr Time"
+                "Flight Number", "Departure Location", "Arrival Location", "Departure Time", "Arrival Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -113,7 +113,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
             }
         });
 
-        SearchBtn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        SearchBtn.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         SearchBtn.setText("Search");
         SearchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,57 +126,59 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(79, 79, 79)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(insertNewFliTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(flightNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(72, 72, 72)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(updateFltBtn, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(SearchBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(labelHead)))
+                .addGap(140, 140, 140))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(backBtnFliSch)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(43, 43, 43)
-                            .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(47, 47, 47)
-                            .addComponent(flightNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(84, 84, 84)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(insertNewFliTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(updateFltBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SearchBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(220, 220, 220)
-                            .addComponent(labelHead)))
-                    .addContainerGap(64, Short.MAX_VALUE)))
+                    .addContainerGap(765, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(27, 27, 27)
+                .addComponent(labelHead)
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(248, 248, 248))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SearchBtn)
+                    .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(flightNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(updateFltBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(insertNewFliTxt)
+                .addGap(18, 18, 18)
+                .addComponent(cancelBtn)
+                .addGap(34, 34, 34))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(backBtnFliSch)
-                            .addGap(285, 285, 285))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(labelHead)
-                            .addGap(268, 268, 268)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(SearchBtn)
-                        .addComponent(flightNumberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(updateFltBtn)
-                    .addGap(18, 18, 18)
-                    .addComponent(insertNewFliTxt)
-                    .addGap(18, 18, 18)
-                    .addComponent(cancelBtn)
-                    .addContainerGap(16, Short.MAX_VALUE)))
+                    .addComponent(backBtnFliSch)
+                    .addContainerGap(489, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -230,25 +232,36 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
     private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBtnActionPerformed
 
         String searchTxt = flightNumberTxt.getText();
-        TravelAgency ta = TravelAgency.getInstance();
+        TravelAgency travelagency = TravelAgency.getInstance();
 
         String comboTxt = searchComboBox.getSelectedItem().toString();
-        System.out.println("comboTxt :" + comboTxt);
 
         switch (comboTxt) {
             case "Search By Flight Number":
-                Flight f = ta.searchFlightOnFlightNumber(searchTxt);
-                populateSearchedFlight(f);
+                Flight f = travelagency.searchFlightOnFlightNumber(searchTxt);
+                if (f != null){
+                    populateSearchedFlight(f);
+                }else{
+                    JOptionPane.showMessageDialog(null, "NO flights found");     
+                    }
                 break;
 
             case "Search By Departure Location":
-                List<Flight> depFlightList = ta.searchFlightOnDepLocation(searchTxt);
+                List<Flight> depFlightList = travelagency.searchFlightOnDepLocation(searchTxt);
+                if(depFlightList != null){
                 populateSearchedFlight(depFlightList);
+                }else{
+                    JOptionPane.showMessageDialog(null, "NO flights found");     
+                    }
                 break;
 
             case "Search By Arrival Location":
-                List<Flight> arrFlightList = ta.searchFlightOnArrLocation(searchTxt);
+                List<Flight> arrFlightList = travelagency.searchFlightOnArrLocation(searchTxt);
+                if(arrFlightList != null){
                 populateSearchedFlight(arrFlightList);
+                }else{
+                    JOptionPane.showMessageDialog(null, "NO flights found");     
+                    }
                 break;
         }
     }//GEN-LAST:event_SearchBtnActionPerformed
