@@ -12,7 +12,8 @@ import java.util.List;
  * @author srush
  */
 public class FlightSchedule {
- private List<Flight> flights; 
+
+    private List<Flight> flights;
 
     public List<Flight> getFlights() {
         return flights;
@@ -26,5 +27,5 @@ public class FlightSchedule {
     public String toString() {
         return "FlightSchedule{" + "flights=" + flights + '}';
     }
-       
+
 }

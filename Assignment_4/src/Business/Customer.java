@@ -24,7 +24,7 @@ public class Customer {
     private int age;
     private String emailId;
     private String mobileNumber;
-    private Gender gender;    
+    private Gender gender;
 
     public List<Ticket> getTickets() {
         return tickets;

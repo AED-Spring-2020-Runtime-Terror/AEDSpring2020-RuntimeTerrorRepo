@@ -8,7 +8,6 @@ package UserInterface;
 import Business.Flight;
 import Business.TravelAgency;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,35 +22,35 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FlightFoundJPanel
      */
-    
     private JPanel cardSequenceJPanel;
-   private TravelAgency travelAgency;
-   private List<Flight> flights;
-   
+    private TravelAgency travelAgency;
+    private List<Flight> flights;
+
     public FlightFoundJPanel(JPanel cardSequenceJPanel, TravelAgency travelAgency, List<Flight> flights) {
-       initComponents();
-       this.cardSequenceJPanel = cardSequenceJPanel;
-       this.flights=flights;
-       this.travelAgency= travelAgency;
-       populateFlightDetails(flights);
-       
-       }
+        initComponents();
+        this.cardSequenceJPanel = cardSequenceJPanel;
+        this.flights = flights;
+        this.travelAgency = travelAgency;
+        populateFlightDetails(flights);
+
+    }
 
     private void populateFlightDetails(List<Flight> flightList) {
-       //To change body of generated methods, choose Tools | Templates.
-       DefaultTableModel defaultTableModel = (DefaultTableModel) flightDetailtbl.getModel();
-       defaultTableModel.setRowCount(0);
-        
-        for(Flight f : flightList){
-           Object[] row = new Object[defaultTableModel.getColumnCount()];
-           row[0] = f;
-           row[1] = f.getDeparture();
-           row[2] = f.getDestination();
-           row[3] = "Yes";
-		   
-           defaultTableModel.addRow(row);
-   }
-   }
+
+        DefaultTableModel defaultTableModel = (DefaultTableModel) flightDetailtbl.getModel();
+        defaultTableModel.setRowCount(0);
+
+        for (Flight f : flightList) {
+            Object[] row = new Object[defaultTableModel.getColumnCount()];
+            row[0] = f;
+            row[1] = f.getDeparture();
+            row[2] = f.getDestination();
+            row[3] = "Yes";
+
+            defaultTableModel.addRow(row);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,15 +147,14 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
     private void fetchdetbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchdetbtnActionPerformed
         // TODO add your handling code here:
 
-        int selectedRow=flightDetailtbl.getSelectedRow();
-        if(selectedRow <0){
-            JOptionPane.showMessageDialog(null,"Please select a row first" , "Warning", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Flight flight= (Flight)flightDetailtbl.getValueAt(selectedRow,0);
-            FlightDetailsFetchedJPanel panel = new FlightDetailsFetchedJPanel(cardSequenceJPanel,flight,travelAgency);
-            cardSequenceJPanel.add("FlightDetailsFetchedJPanel",panel);
-            CardLayout layout= (CardLayout) cardSequenceJPanel.getLayout();
+        int selectedRow = flightDetailtbl.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row first", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Flight flight = (Flight) flightDetailtbl.getValueAt(selectedRow, 0);
+            FlightDetailsFetchedJPanel panel = new FlightDetailsFetchedJPanel(cardSequenceJPanel, flight, travelAgency);
+            cardSequenceJPanel.add("FlightDetailsFetchedJPanel", panel);
+            CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
             layout.next(cardSequenceJPanel);
         }
 

@@ -9,8 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author bobba 
- * this schedule is for travel agency
+ * @author bobba this schedule is for travel agency
  *
  */
 public class MasterSchedule {

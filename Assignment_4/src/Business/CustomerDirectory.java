@@ -12,7 +12,8 @@ import java.util.List;
  * @author srush
  */
 public class CustomerDirectory {
-     private List<Customer> customers;
+
+    private List<Customer> customers;
 
     public List<Customer> getCustomers() {
         return customers;

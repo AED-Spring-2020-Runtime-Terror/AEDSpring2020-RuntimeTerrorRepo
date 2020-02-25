@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Business;
+
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class AirlineDirectory {
 
     private List<Airliner> airlines;
     private Date createDate;
-     private Date updateDate;
+    private Date updateDate;
 
     public Date getCreateDate() {
         return createDate;
@@ -32,7 +33,6 @@ public class AirlineDirectory {
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
-    
 
     public List<Airliner> getAirlines() {
         return airlines;

@@ -11,11 +11,11 @@ import java.util.List;
 /**
  *
  * @author bobba
- * 
+ *
  * Need to make seats of flight in ticket to null
  */
 public class Ticket {
-    
+
     private String pnr;
     private String seatNumber;
     private String number;
@@ -88,5 +88,5 @@ public class Ticket {
     public void setBookingDate(String bookingDate) {
         this.bookingDate = bookingDate;
     }
-    
+
 }

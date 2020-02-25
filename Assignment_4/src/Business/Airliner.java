@@ -10,10 +10,11 @@ package Business;
  * @author srush
  */
 public class Airliner {
+
     private Fleet fleet;
     private String airlineName;
     private FlightSchedule flightSchedule;
-    
+
     public Fleet getFleet() {
         return fleet;
     }
@@ -42,5 +43,5 @@ public class Airliner {
     public String toString() {
         return this.airlineName;
     }
-     
+
 }
