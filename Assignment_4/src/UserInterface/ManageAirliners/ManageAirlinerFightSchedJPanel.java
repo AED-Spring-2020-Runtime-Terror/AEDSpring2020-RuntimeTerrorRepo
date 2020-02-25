@@ -232,25 +232,36 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
     private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBtnActionPerformed
 
         String searchTxt = flightNumberTxt.getText();
-        TravelAgency ta = TravelAgency.getInstance();
+        TravelAgency travelagency = TravelAgency.getInstance();
 
         String comboTxt = searchComboBox.getSelectedItem().toString();
-        System.out.println("comboTxt :" + comboTxt);
 
         switch (comboTxt) {
             case "Search By Flight Number":
-                Flight f = ta.searchFlightOnFlightNumber(searchTxt);
-                populateSearchedFlight(f);
+                Flight f = travelagency.searchFlightOnFlightNumber(searchTxt);
+                if (f != null){
+                    populateSearchedFlight(f);
+                }else{
+                    JOptionPane.showMessageDialog(null, "NO flights found");     
+                    }
                 break;
 
             case "Search By Departure Location":
-                List<Flight> depFlightList = ta.searchFlightOnDepLocation(searchTxt);
+                List<Flight> depFlightList = travelagency.searchFlightOnDepLocation(searchTxt);
+                if(depFlightList != null){
                 populateSearchedFlight(depFlightList);
+                }else{
+                    JOptionPane.showMessageDialog(null, "NO flights found");     
+                    }
                 break;
 
             case "Search By Arrival Location":
-                List<Flight> arrFlightList = ta.searchFlightOnArrLocation(searchTxt);
+                List<Flight> arrFlightList = travelagency.searchFlightOnArrLocation(searchTxt);
+                if(arrFlightList != null){
                 populateSearchedFlight(arrFlightList);
+                }else{
+                    JOptionPane.showMessageDialog(null, "NO flights found");     
+                    }
                 break;
         }
     }//GEN-LAST:event_SearchBtnActionPerformed

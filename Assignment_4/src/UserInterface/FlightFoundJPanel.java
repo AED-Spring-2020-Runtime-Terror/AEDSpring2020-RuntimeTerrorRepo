@@ -33,20 +33,22 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
        this.cardSequenceJPanel = cardSequenceJPanel;
        this.flights=flights;
        this.travelAgency= travelAgency;
-       populateFlightDetails();
+       populateFlightDetails(flights);
+       
        }
 
-    private void populateFlightDetails() {
+    private void populateFlightDetails(List<Flight> flightList) {
        //To change body of generated methods, choose Tools | Templates.
        DefaultTableModel defaultTableModel = (DefaultTableModel) flightDetailtbl.getModel();
        defaultTableModel.setRowCount(0);
         
-        for(Flight f : flights){
+        for(Flight f : flightList){
            Object[] row = new Object[defaultTableModel.getColumnCount()];
            row[0] = f;
-           row[1] = f.getDestination();
-           row[2] =f.getDeparture();
+           row[1] = f.getDeparture();
+           row[2] = f.getDestination();
            row[3] = "Yes";
+		   
            defaultTableModel.addRow(row);
    }
    }
@@ -80,7 +82,7 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Flight Number", "To", "From", "Seat Availability"
+                "Flight Number", "Departure Location", "Arrival Location", "Seat Availability"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -104,21 +106,21 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(bckbtn)
-                .addGap(197, 197, 197)
-                .addComponent(jLabel1)
-                .addGap(336, 336, 336))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(509, 509, 509)
+                .addComponent(fetchdetbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(fetchdetbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(bckbtn)
+                        .addGap(197, 197, 197)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,8 +129,8 @@ public class FlightFoundJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(bckbtn))
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(fetchdetbtn)
                 .addGap(143, 143, 143))
