@@ -257,7 +257,7 @@ public class ManageAirlinerFightSchedJPanel extends javax.swing.JPanel {
                 break;
 
             case "Search By Arrival Location":
-                List<Flight> arrFlightList = travelagency.searchFlightOnArrLocation(searchTxt);
+                List<Flight> arrFlightList = travelagency.searchFlightOnArrLocation(searchTxt, airline);
                 if (arrFlightList != null) {
                     populateSearchedFlight(arrFlightList);
                 } else {
