@@ -6,6 +6,7 @@
 package UserInterface;
 
 import Business.Flight;
+import Business.FlightSchedule;
 import Business.TravelAgency;
 import java.awt.CardLayout;
 import java.util.Arrays;

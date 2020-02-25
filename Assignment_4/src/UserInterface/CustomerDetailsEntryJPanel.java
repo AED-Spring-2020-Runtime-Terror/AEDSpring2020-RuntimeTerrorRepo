@@ -262,7 +262,8 @@ public class CustomerDetailsEntryJPanel extends javax.swing.JPanel {
            return;
         }
 
-        Customer c = travelAgency.searchCustomerByMail(mailIdTxt.getText());
+ //       Customer c = travelAgency.searchCustomerByMail(mailIdTxt.getText());
+         Customer c = new Customer();
         if (c == null) {
             c = travelAgency.createNewCustomer();
         }
